@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Informasi - SMK Negeri Bojonggambir</title>
+    <style>
+        :root {
+            --primary: #0056b3;
+            --secondary: #f4f6f9;
+            --accent: #ff9800;
+            --text-dark: #333;
+            --text-light: #fff;
+            --sidebar-bg: #1d2b36;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            display: flex;
+            background-color: var(--secondary);
+            color: var(--text-dark);
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 260px;
+            background-color: var(--sidebar-bg);
+            color: var(--text-light);
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s;
+        }
+
+        /* Update: Header & Logo Styling */
+        .sidebar-header {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #324350;
+            background-color: #141e26;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .sidebar-logo {
+            width: 80px;
+            height: auto;
+            border-radius: 50%; /* Optional: Jika logo kotak ingin dibuat agak melingkar, atau biarkan default */
+            background-color: #fff; /* Tambahkan background putih agar logo lebih jelas jika background aslinya transparan */
+            padding: 5px;
+        }
+
+        .sidebar-header h2 {
+            font-size: 1.2rem;
+            margin: 0;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 10px 0;
+        }
+
+        .sidebar ul li {
+            padding: 15px 20px;
+            cursor: pointer;
+            border-left: 4px solid transparent;
+            transition: 0.2s;
+        }
+
+        .sidebar ul li:hover, .sidebar ul li.active {
+            background-color: #2a3f50;
+            border-left: 4px solid var(--accent);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 30px;
+            overflow-y: auto;
+        }
+
+        .section-header {
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .section-header h1 {
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+
+        /* Grid & Cards */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 120px;
+            border: 1px solid #eee;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .card p {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        /* Highlighted Cards (Saran Tambahan) */
+        .card.highlight {
+            background-color: var(--primary);
+            color: var(--text-light);
+            border: none;
+        }
+        
+        .card.highlight h3, .card.highlight p {
+            color: var(--text-light);
+        }
+
+        .card.highlight:hover {
+            background-color: #004494;
+        }
+        
+        .card.accent {
+            background-color: var(--accent);
+            color: var(--text-light);
+        }
+        .card.accent h3, .card.accent p {
+            color: var(--text-light);
+        }
+
+        /* Landing Page specific */
+        .landing-nav {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .landing-btn {
+            padding: 10px 20px;
+            background-color: #fff;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .landing-btn:hover {
+            background-color: var(--primary);
+            color: #fff;
+        }
+
+        .btn-login {
+            background-color: var(--primary);
+            color: #fff;
+        }
+
+        /* Sections visibility */
+        .module-section {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .module-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+            }
+            /* Update Responsive Header */
+            .sidebar-header {
+                width: 100%;
+                flex-direction: row;
+                padding: 15px;
+            }
+            .sidebar-logo {
+                width: 45px;
+            }
+            .sidebar ul {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                width: 100%;
+            }
+            .sidebar ul li {
+                padding: 10px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <!-- Update: Logo ditambahkan di sini -->
+        <div class="sidebar-header">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgz1tbb8TSawO2lHGi_GXN3Il5CtrN_K125hSy7D8NxvBFL6bywiebvkalj_6oRIBVxEm_zj84j6ZAlhKmaEOqjIeGHXe9SWw0HQipKs3aL8iy7K1Dc_Pd9SHMVZsOQrb99qTK78Wmee7StIKKzzfST5YU_CkGSAz3MuMJsrSL_nHt37c5AzIe8B7HodnQ/s320/LOGO%20SMKN%20BOJONGGAMBIR.png" alt="Logo SMKN Bojonggambir" class="sidebar-logo">
+            <h2>SMKN Bojonggambir</h2>
+        </div>
+        
+        <ul>
+            <li class="nav-item active" onclick="showModule('landing', this)">1. Halaman Utama</li>
+            <li class="nav-item" onclick="showModule('auth', this)">2. Autentikasi</li>
+            <li class="nav-item" onclick="showModule('siswa', this)">3. Dasbor Siswa</li>
+            <li class="nav-item" onclick="showModule('guru', this)">4. Dasbor Guru</li>
+            <li class="nav-item" onclick="showModule('vokasi', this)">5. Modul Vokasi</li>
+            <li class="nav-item" onclick="showModule('admin', this)">6. Dasbor Admin</li>
+        </ul>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+
+        <!-- 1. Landing Page -->
+        <div id="landing" class="module-section active">
+            <div class="section-header">
+                <h1>Halaman Utama (Landing Page Publik)</h1>
+                <p>Tampilan menu navigasi utama untuk publik dan calon siswa.</p>
+            </div>
+            <div class="landing-nav">
+                <button class="landing-btn">Beranda</button>
+                <button class="landing-btn">Profil Sekolah</button>
+                <button class="landing-btn">Program Keahlian</button>
+                <button class="landing-btn">Fasilitas</button>
+                <button class="landing-btn">Berita & Pengumuman</button>
+                <button class="landing-btn accent" style="border-color:var(--accent);">PPDB Online</button>
+                <button class="landing-btn btn-login">Portal Login</button>
+            </div>
+        </div>
+
+        <!-- 2. Autentikasi -->
+        <div id="auth" class="module-section">
+            <div class="section-header">
+                <h1>Modul Autentikasi</h1>
+                <p>Formulir dan tombol untuk akses masuk sistem.</p>
+            </div>
+            <div class="grid-container">
+                <div class="card highlight">
+                    <h3>Masuk / Login</h3>
+                    <p>Gunakan Username & Password</p>
+                </div>
+                <div class="card">
+                    <h3>Lupa Kata Sandi?</h3>
+                    <p>Reset via Email / WhatsApp</p>
+                </div>
+                <div class="card" style="background-color: #ffebee; border: 1px solid #ffcdd2;">
+                    <h3 style="color: #c62828;">Keluar / Logout</h3>
+                    <p>Akhiri sesi dengan aman</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Dasbor Siswa -->
+        <div id="siswa" class="module-section">
+            <div class="section-header">
+                <h1>Dasbor Siswa (Student Portal)</h1>
+                <p>Menu utama untuk peserta didik. Fitur penting ditandai dengan warna khusus.</p>
+            </div>
+            <div class="grid-container">
+                <div class="card">
+                    <h3>Profil Saya</h3>
+                    <p>Edit data pribadi</p>
+                </div>
+                <!-- Highlighted Cards as requested -->
+                <div class="card highlight">
+                    <h3>📅 Jadwal Pelajaran</h3>
+                    <p>Lihat jadwal kelas hari ini</p>
+                </div>
+                <div class="card highlight">
+                    <h3>✅ Rekap Absensi</h3>
+                    <p>Cek persentase kehadiran</p>
+                </div>
+                <div class="card highlight">
+                    <h3>📊 Nilai / e-Rapor</h3>
+                    <p>Lihat KHS semester</p>
+                </div>
+                <div class="card">
+                    <h3>Tugas & Materi</h3>
+                    <p>Unduh modul & upload tugas</p>
+                </div>
+                <div class="card">
+                    <h3>Ujian Online (CBT)</h3>
+                    <p>Akses ulangan harian</p>
+                </div>
+                <div class="card">
+                    <h3>Keuangan</h3>
+                    <p>Riwayat SPP & Pembayaran</p>
+                </div>
+                <div class="card">
+                    <h3>Ajukan Izin/Sakit</h3>
+                    <p>Upload surat keterangan</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Dasbor Guru -->
+        <div id="guru" class="module-section">
+            <div class="section-header">
+                <h1>Dasbor Guru (Teacher Portal)</h1>
+                <p>Alat manajemen KBM untuk guru mata pelajaran dan wali kelas.</p>
+            </div>
+            <div class="grid-container">
+                <div class="card highlight">
+                    <h3>Jadwal Mengajar</h3>
+                    <p>Lihat kelas yang diajar hari ini</p>
+                </div>
+                <div class="card highlight">
+                    <h3>Input Absensi</h3>
+                    <p>Isi daftar hadir siswa</p>
+                </div>
+                <div class="card highlight">
+                    <h3>Input Nilai</h3>
+                    <p>Masukkan nilai UTS/UAS/Praktik</p>
+                </div>
+                <div class="card">
+                    <h3>Upload Materi</h3>
+                    <p>Bahan ajar untuk siswa</p>
+                </div>
+                <div class="card">
+                    <h3>Buat Tugas / Kuis</h3>
+                    <p>Kelola penugasan</p>
+                </div>
+                <div class="card">
+                    <h3>Jurnal Mengajar</h3>
+                    <p>Laporan KBM harian</p>
+                </div>
+                <div class="card accent">
+                    <h3>Data Kelas</h3>
+                    <p>(Khusus Wali Kelas)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. Modul Vokasi (SMK) -->
+        <div id="vokasi" class="module-section">
+            <div class="section-header">
+                <h1>Modul Khusus SMK (Vokasi)</h1>
+                <p>Fitur penunjang keahlian, magang, dan karir.</p>
+            </div>
+            
+            <h3 style="margin: 20px 0 10px; color: #555;">Prakerin / PKL</h3>
+            <div class="grid-container">
+                <div class="card">
+                    <h3>Daftar PKL</h3>
+                    <p>Pengajuan tempat magang</p>
+                </div>
+                <div class="card highlight">
+                    <h3>Isi Jurnal PKL</h3>
+                    <p>Laporan harian siswa</p>
+                </div>
+                <div class="card">
+                    <h3>Nilai PKL</h3>
+                    <p>Input nilai dari pembimbing</p>
+                </div>
+            </div>
+
+            <h3 style="margin: 20px 0 10px; color: #555;">Bursa Kerja Khusus (BKK) & Inventaris</h3>
+            <div class="grid-container">
+                <div class="card accent">
+                    <h3>Info Lowongan Kerja</h3>
+                    <p>Loker dari industri mitra</p>
+                </div>
+                <div class="card accent">
+                    <h3>Lamar Pekerjaan</h3>
+                    <p>Kirim CV via sistem</p>
+                </div>
+                <div class="card">
+                    <h3>Pinjam Alat Praktik</h3>
+                    <p>Peminjaman bengkel/lab</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. Dasbor Admin / TU -->
+        <div id="admin" class="module-section">
+            <div class="section-header">
+                <h1>Dasbor Tata Usaha / Admin</h1>
+                <p>Pusat kontrol dan manajemen data master sekolah.</p>
+            </div>
+            <div class="grid-container">
+                <div class="card highlight">
+                    <h3>Kelola Data Siswa</h3>
+                    <p>Tambah/Edit data siswa</p>
+                </div>
+                <div class="card highlight">
+                    <h3>Kelola Data Guru & Staf</h3>
+                    <p>Manajemen kepegawaian</p>
+                </div>
+                <div class="card">
+                    <h3>Kelola Kelas & Jurusan</h3>
+                    <p>Pembagian rombongan belajar</p>
+                </div>
+                <div class="card">
+                    <h3>Kelola Mata Pelajaran</h3>
+                    <p>Seting kurikulum</p>
+                </div>
+                <div class="card">
+                    <h3>Manajemen Jadwal</h3>
+                    <p>Generate jadwal sekolah</p>
+                </div>
+                <div class="card">
+                    <h3>Manajemen Keuangan</h3>
+                    <p>Konfirmasi & Kuitansi</p>
+                </div>
+                <div class="card">
+                    <h3>Manajemen PPDB</h3>
+                    <p>Seleksi pendaftar baru</p>
+                </div>
+                <div class="card">
+                    <h3>Manajemen Informasi</h3>
+                    <p>Posting berita & galeri</p>
+                </div>
+                <div class="card accent" style="background-color: #607d8b;">
+                    <h3>Pengaturan Sistem</h3>
+                    <p>Backup, Role, & Tahun Ajaran</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function showModule(moduleId, element) {
+            // Sembunyikan semua section
+            const sections = document.querySelectorAll('.module-section');
+            sections.forEach(sec => sec.classList.remove('active'));
+
+            // Hapus kelas active dari semua menu
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(nav => nav.classList.remove('active'));
+
+            // Tampilkan section yang dipilih
+            document.getElementById(moduleId).classList.add('active');
+            
+            // Tambahkan kelas active ke menu yang diklik
+            element.classList.add('active');
+        }
+    </script>
+</body>
+</html>

@@ -130,6 +130,8 @@
         /* Sambutan Layout (Luxury Floating Image Frame) */
         .img-wrap-kepsek {
             position: relative;
+            max-width: 340px; /* UPDATE: Memperkecil lebar maksimal foto */
+            margin: 0 auto; /* UPDATE: Menempatkan foto di tengah */
         }
         .img-wrap-kepsek::before {
             content: '';
@@ -148,7 +150,7 @@
             z-index: 2;
             border-radius: 24px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-            max-width: 100%;
+            width: 100%; /* UPDATE: Memastikan foto menyesuaikan container */
             height: auto;
             transition: var(--transition-smooth);
         }
@@ -157,6 +159,16 @@
         }
         .img-wrap-kepsek:hover::before {
             transform: translate(5px, 5px);
+        }
+
+        /* News & Agenda Cards Custom */
+        .info-card {
+            transition: var(--transition-smooth);
+            border-radius: 16px;
+        }
+        .info-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08) !important;
         }
 
         /* Jurusan Cards (Clean Soft Shadow & Image Zoom) */
@@ -299,7 +311,7 @@
                     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Beranda</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#sambutan">Sambutan Kepala Sekolah</a></li>
-                        <li><a class="dropdown-item" href="#">Berita Terkini</a></li>
+                        <li><a class="dropdown-item" href="#informasi">Pusat Informasi</a></li>
                         <li><a class="dropdown-item" href="#">Galeri Sekolah</a></li>
                     </ul>
                 </li>
@@ -369,7 +381,7 @@
 <section class="bg-white" id="sambutan">
     <div class="container">
         <div class="row align-items-center g-5">
-            <div class="col-lg-5" data-aos="fade-right" data-aos-duration="1000">
+            <div class="col-lg-5 text-center" data-aos="fade-right" data-aos-duration="1000">
                 <div class="img-wrap-kepsek">
                     <img src="https://blogger.googleusercontent.com/img/a/AVvXsEipRnC3Eu85TxYPTJV9h_U0qtzwy6VJFD_z7OGz2q4ed7p18Wc63FLqQhh-3Ek35uAzgflz_hH4H4lMyJiAsFSSIzGGpEQnLN2tESYf6GulaAuWvRHRDbimCdlgxe0W1s3-gd9_IsNx2Sylql46dHXCO3vyVz9x26h6wfBL7R5wuoPylQlqenZkMvTrQ-U" class="img-kepsek" alt="Kepala Sekolah">
                 </div>
@@ -378,8 +390,8 @@
                 <h6 class="text-primary fw-bold text-uppercase tracking-widest mb-2" style="font-size: 0.8rem;">Sambutan Kepala Sekolah</h6>
                 <h2 class="fw-bold text-dark mb-4" style="font-size: 2.5rem;">Iman Rahmat, S. Pd. I</h2>
                 <p class="text-muted mb-4 fs-5 fw-light" style="font-style: italic;">Assalamu’alaikum Warahmatullahi Wabarakatuh,</p>
-                <p class="text-secondary-light mb-4 opacity-90 lh-lg">Selamat datang di era baru SMKN Bojonggambir tahun 2026. Sebagai institusi pendidikan vokasi, kami berkomitmen untuk melahirkan lulusan yang tidak hanya cerdas secara intelektual, tetapi juga kreatif, mandiri, dan berkarakter kuat.</p>
-                <p class="text-secondary-light mb-5 opacity-90 lh-lg">Melalui jurusan <strong>APHP</strong> dan <strong>DKV</strong>, kami mengintegrasikan teknologi terkini untuk memastikan siswa kami siap menghadapi tantangan industri global. Mari melangkah bersama menuju masa depan yang lebih gemilang.</p>
+                <p class="text-secondary-light mb-4 opacity-90 lh-lg text-muted">Selamat datang di era baru SMKN Bojonggambir tahun 2026. Sebagai institusi pendidikan vokasi, kami berkomitmen untuk melahirkan lulusan yang tidak hanya cerdas secara intelektual, tetapi juga kreatif, mandiri, dan berkarakter kuat.</p>
+                <p class="text-secondary-light mb-5 opacity-90 lh-lg text-muted">Melalui jurusan <strong>APHP</strong> dan <strong>DKV</strong>, kami mengintegrasikan teknologi terkini untuk memastikan siswa kami siap menghadapi tantangan industri global. Mari melangkah bersama menuju masa depan yang lebih gemilang.</p>
                 
                 <div class="p-4 border-start border-4 border-warning bg-light rounded-end-3">
                     <p class="fw-bold mb-0 text-dark">Iman Rahmat, S. Pd. I</p>
@@ -390,14 +402,125 @@
     </div>
 </section>
 
+<!-- UPDATE BARU: Pusat Informasi & Agenda (4 Kolom) -->
+<section class="bg-light" id="informasi">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <h6 class="text-primary fw-bold text-uppercase tracking-widest mb-2" style="font-size: 0.8rem;">Pusat Informasi</h6>
+            <h2 class="fw-bold text-dark">Informasi & Agenda Sekolah</h2>
+        </div>
+        <div class="row g-4">
+            
+            <!-- Kolom 1: Berita Utama -->
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                <div class="card info-card h-100 border-0 shadow-sm bg-white overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1546410531-dd4cbac24b25?q=80&w=500&auto=format&fit=crop" class="card-img-top" alt="Berita Utama" style="height: 160px; object-fit: cover;">
+                    <div class="card-body p-4">
+                        <span class="badge bg-danger mb-3 px-2 py-1">Berita Utama</span>
+                        <h6 class="card-title fw-bold lh-base text-dark mb-2">SMKN Bojonggambir Raih Penghargaan Vokasi 2026</h6>
+                        <p class="card-text text-muted small mb-0" style="font-size: 0.85rem;">Siswa-siswi sekolah kita kembali menorehkan prestasi membanggakan di kancah nasional dalam kompetisi inovasi digital...</p>
+                    </div>
+                    <div class="card-footer bg-white border-0 p-4 pt-0">
+                        <a href="#" class="text-primary text-decoration-none fw-semibold small">Baca detail &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kolom 2: Berita Terbaru -->
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                <div class="card info-card h-100 border-0 shadow-sm bg-white overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=500&auto=format&fit=crop" class="card-img-top" alt="Berita Terbaru" style="height: 160px; object-fit: cover;">
+                    <div class="card-body p-4">
+                        <span class="badge bg-primary mb-3 px-2 py-1">Berita Terbaru</span>
+                        <h6 class="card-title fw-bold lh-base text-dark mb-2">Pelepasan Siswa Praktik Kerja Lapangan (PKL)</h6>
+                        <p class="card-text text-muted small mb-0" style="font-size: 0.85rem;">Sebanyak 150 siswa dari jurusan DKV dan APHP resmi dilepas untuk melaksanakan PKL di berbagai industri mitra...</p>
+                    </div>
+                    <div class="card-footer bg-white border-0 p-4 pt-0">
+                        <a href="#" class="text-primary text-decoration-none fw-semibold small">Baca detail &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kolom 3: Agenda Kegiatan 1 -->
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                <div class="card info-card h-100 border-0 shadow-sm bg-white">
+                    <div class="card-body p-4 d-flex flex-column">
+                        <h5 class="fw-bold mb-4 border-bottom pb-2 text-dark fs-6 text-uppercase">Agenda Kegiatan</h5>
+                        
+                        <!-- Agenda Item 1 -->
+                        <div class="d-flex mb-4 align-items-center">
+                            <div class="bg-light rounded-3 p-2 text-center me-3 border" style="min-width: 65px;">
+                                <span class="d-block fw-bold text-primary fs-5 lh-1">15</span>
+                                <span class="d-block text-muted" style="font-size: 0.7rem;">JULI</span>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1 text-dark" style="font-size: 0.9rem;">Masa Pengenalan Lingkungan Sekolah</h6>
+                                <p class="text-muted small mb-0" style="font-size: 0.8rem;"><i class="far fa-clock me-1 text-warning"></i> 07:00 - Selesai</p>
+                            </div>
+                        </div>
+
+                        <!-- Agenda Item 2 -->
+                        <div class="d-flex align-items-center">
+                            <div class="bg-light rounded-3 p-2 text-center me-3 border" style="min-width: 65px;">
+                                <span class="d-block fw-bold text-primary fs-5 lh-1">28</span>
+                                <span class="d-block text-muted" style="font-size: 0.7rem;">JULI</span>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1 text-dark" style="font-size: 0.9rem;">Workshop Digital Talent DKV</h6>
+                                <p class="text-muted small mb-0" style="font-size: 0.8rem;"><i class="far fa-clock me-1 text-warning"></i> 08:30 - 14:00</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kolom 4: Agenda Kegiatan 2 -->
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+                <div class="card info-card h-100 border-0 shadow-sm bg-white">
+                    <div class="card-body p-4 d-flex flex-column">
+                        <h5 class="fw-bold mb-4 border-bottom pb-2 text-dark fs-6 text-uppercase">Agenda Lanjutan</h5>
+                        
+                        <!-- Agenda Item 3 -->
+                        <div class="d-flex mb-4 align-items-center">
+                            <div class="bg-light rounded-3 p-2 text-center me-3 border" style="min-width: 65px;">
+                                <span class="d-block fw-bold text-primary fs-5 lh-1">10</span>
+                                <span class="d-block text-muted" style="font-size: 0.7rem;">AGS</span>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1 text-dark" style="font-size: 0.9rem;">Panen Karya & Bazar APHP</h6>
+                                <p class="text-muted small mb-0" style="font-size: 0.8rem;"><i class="fas fa-map-marker-alt me-1 text-warning"></i> Lapangan Utama</p>
+                            </div>
+                        </div>
+
+                        <!-- Agenda Item 4 -->
+                        <div class="d-flex align-items-center">
+                            <div class="bg-light rounded-3 p-2 text-center me-3 border" style="min-width: 65px;">
+                                <span class="d-block fw-bold text-primary fs-5 lh-1">17</span>
+                                <span class="d-block text-muted" style="font-size: 0.7rem;">AGS</span>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1 text-dark" style="font-size: 0.9rem;">Upacara HUT RI ke-81</h6>
+                                <p class="text-muted small mb-0" style="font-size: 0.8rem;"><i class="fas fa-flag me-1 text-warning"></i> Wajib Seluruh Siswa</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
 <!-- Jurusan APHP & DKV -->
-<section class="bg-light" id="jurusan">
+<section class="bg-white" id="jurusan">
     <div class="container text-center">
         <h6 class="text-primary fw-bold text-uppercase tracking-widest mb-2" style="font-size: 0.8rem;" data-aos="fade-up">Kompetensi Keahlian</h6>
         <h2 class="fw-bold mb-5 text-dark" data-aos="fade-up" data-aos-delay="100">Profil Jurusan Unggulan</h2>
         <div class="row g-4 justify-content-center">
             <div class="col-md-6 col-lg-5" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="1000">
-                <div class="card jurusan-card h-100">
+                <div class="card jurusan-card h-100 border shadow-sm">
                     <div class="jurusan-card-img-wrapper">
                         <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=1470&auto=format&fit=crop" class="card-img-top" alt="APHP" style="height: 260px; object-fit: cover;">
                     </div>
@@ -408,7 +531,7 @@
                 </div>
             </div>
             <div class="col-md-6 col-lg-5" data-aos="zoom-in" data-aos-delay="300" data-aos-duration="1000">
-                <div class="card jurusan-card h-100">
+                <div class="card jurusan-card h-100 border shadow-sm">
                     <div class="jurusan-card-img-wrapper">
                         <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1470&auto=format&fit=crop" class="card-img-top" alt="DKV" style="height: 260px; object-fit: cover;">
                     </div>

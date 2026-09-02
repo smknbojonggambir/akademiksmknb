@@ -1,136 +1,163 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMKN Bojonggambir - Masa Depan Gemilang 2026</title>
+    <title>SMKN Bojonggambir - Pusat Keunggulan Pendidikan Vokasi 2026</title>
     
-    <!-- CSS Libraries -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
-    <!-- Google Fonts: Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root { 
-            --primary: #0a2540; /* Navy premium ala korporat modern */
-            --secondary: #d4af37; /* Gold/Champagne mewah */
+            --primary: #0b192c; /* Navy Korporat Elegan */
+            --primary-light: #1e3e62;
+            --secondary: #d4af37; /* Champagne Gold Mewah */
             --secondary-hover: #bfa130;
-            --light-bg: #f8fafc; /* Abu-abu ultra ringan & bersih */
-            --text-dark: #1e293b;
+            --accent: #0066ff;
+            --light-bg: #f8fafc; /* Surface clean modern */
+            --card-border: #e2e8f0;
+            --text-dark: #0f172a;
             --text-muted: #64748b;
-            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            --radius-md: 16px;
+            --radius-lg: 24px;
         }
 
         body { 
-            font-family: 'Poppins', sans-serif; 
+            font-family: 'Plus Jakarta Sans', 'Poppins', sans-serif; 
             color: var(--text-dark);
             background-color: #ffffff;
             overflow-x: hidden; 
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Headings Premium Touch */
+        /* Typography Scaffolding */
         h1, h2, h3, h4, h5, h6 {
-            letter-spacing: -0.02em;
+            letter-spacing: -0.025em;
+            font-weight: 700;
         }
 
-        /* Navbar Custom (Glassmorphism & Premium Feel) */
+        /* Top Bar Info */
+        .top-bar {
+            background: var(--primary);
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.8rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* Navbar Ultra-Modern Glassmorphism */
         .navbar { 
-            background: rgba(255, 255, 255, 0.85) !important; 
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            box-shadow: 0 4px 30px rgba(0,0,0,0.02); 
+            background: rgba(255, 255, 255, 0.92) !important; 
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 4px 25px rgba(0,0,0,0.04); 
             padding: 12px 0; 
-            transition: var(--transition-smooth);
+            transition: var(--transition);
         }
         .navbar-brand img {
-            transition: var(--transition-smooth);
+            transition: var(--transition);
         }
         .navbar-brand:hover img {
             transform: scale(1.05);
         }
+        
+        /* Dropdown Customization */
         .nav-link { 
-            color: #334155 !important; 
-            font-weight: 500; 
-            font-size: 0.9rem; 
-            transition: var(--transition-smooth);
-            position: relative;
-            padding: 0.5rem 1rem !important;
+            color: #1e293b !important; 
+            font-weight: 600; 
+            font-size: 0.88rem; 
+            padding: 0.6rem 1rem !important;
+            transition: var(--transition);
+            border-radius: 8px;
         }
-        .nav-link:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 50%;
-            background-color: var(--primary);
-            transition: var(--transition-smooth);
-            transform: translateX(-50%);
-        }
-        .nav-link:hover:after {
-            width: 60%;
-        }
-        .nav-link:hover { 
-            color: var(--primary) !important; 
+        .nav-link:hover, .nav-link:focus { 
+            color: var(--accent) !important; 
+            background: rgba(0, 102, 255, 0.04);
         }
         
-        /* Dropdown Menu Modernization */
         .dropdown-menu { 
-            border: 1px solid rgba(0,0,0,0.05); 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05); 
+            border: 1px solid var(--card-border); 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08); 
             border-radius: 16px; 
             padding: 10px;
-            animation: fadeInDropdown 0.3s ease;
+            animation: fadeInDropdown 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .dropdown-item {
             border-radius: 8px;
-            padding: 8px 16px;
+            padding: 8px 14px;
             color: var(--text-dark);
-            font-size: 0.88rem;
-            transition: var(--transition-smooth);
+            font-size: 0.86rem;
+            font-weight: 500;
+            transition: var(--transition);
         }
         .dropdown-item:hover {
-            background-color: rgba(10, 37, 64, 0.05);
+            background-color: rgba(11, 25, 44, 0.05);
             color: var(--primary);
             transform: translateX(4px);
         }
 
+        /* Custom Scrollbar Menu PTK */
+        .menu-ptk-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .menu-ptk-scroll::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+
         @keyframes fadeInDropdown {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(12px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Hero Section (Elegant Overlay & Light Typography) */
+        /* Dynamic Hero Section */
         .hero {
-            background: linear-gradient(rgba(10, 37, 64, 0.65), rgba(10, 37, 64, 0.85)), 
+            position: relative;
+            background: linear-gradient(135deg, rgba(11, 25, 44, 0.88) 0%, rgba(15, 23, 42, 0.75) 100%), 
                         url('https://blogger.googleusercontent.com/img/a/AVvXsEij_qi5kizB0-oisRnoIROnXov77nvzYCYzP0UD4WXV1lyZoiH9xS8GbjOc4mmSgiksWv9WdBEqb9NZE-EyG5MWp19LuR5AgJSMgmIsq7ht36TvAveadpVg3yX5vRtwk8GyY6HLPcamEp35VcAffrh_xpND0wbxYutPWOawg3Y8TxRitZ1nK50esZfY9-s');
-            height: 80vh; 
+            min-height: 85vh; 
             background-size: cover; 
             background-position: center;
+            background-attachment: fixed;
             display: flex; 
             align-items: center; 
             color: white; 
-            text-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            padding: 120px 0 80px 0;
         }
-        .hero h1 {
-            font-weight: 700;
-            line-height: 1.2;
-        }
-        .hero p {
-            font-weight: 300;
-            opacity: 0.9;
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
         }
 
-        /* Sambutan Layout (Luxury Floating Image Frame) */
+        /* Floating Feature Highlights Counter */
+        .hero-stats {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 20px 30px;
+            margin-top: 40px;
+        }
+
+        /* Kepsek Section */
         .img-wrap-kepsek {
             position: relative;
-            max-width: 340px; 
+            max-width: 360px; 
             margin: 0 auto; 
         }
         .img-wrap-kepsek::before {
@@ -139,63 +166,65 @@
             width: 100%;
             height: 100%;
             border: 2px solid var(--secondary);
-            border-radius: 24px;
+            border-radius: var(--radius-lg);
             top: 15px;
             left: 15px;
             z-index: 1;
-            transition: var(--transition-smooth);
+            transition: var(--transition);
         }
         .img-kepsek {
             position: relative;
             z-index: 2;
-            border-radius: 24px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            border-radius: var(--radius-lg);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
             width: 100%; 
             height: auto;
-            transition: var(--transition-smooth);
+            transition: var(--transition);
         }
         .img-wrap-kepsek:hover .img-kepsek {
-            transform: translate(-5px, -5px);
+            transform: translate(-6px, -6px);
         }
         .img-wrap-kepsek:hover::before {
-            transform: translate(5px, 5px);
+            transform: translate(6px, 6px);
         }
 
-        /* News & Agenda Cards Custom */
+        /* Modern Info & Agenda Cards */
         .info-card {
-            transition: var(--transition-smooth);
-            border-radius: 16px;
+            transition: var(--transition);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--card-border) !important;
         }
         .info-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.08) !important;
+            box-shadow: 0 20px 35px rgba(0,0,0,0.07) !important;
+            border-color: rgba(0,102,255,0.2) !important;
         }
 
-        /* Jurusan Cards (Clean Soft Shadow & Image Zoom) */
+        /* Jurusan Cards */
         .jurusan-card {
-            border: none; 
-            border-radius: 20px; 
+            border: 1px solid var(--card-border); 
+            border-radius: var(--radius-lg); 
             overflow: hidden;
             background: #ffffff;
-            transition: var(--transition-smooth); 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            transition: var(--transition); 
         }
         .jurusan-card-img-wrapper {
             overflow: hidden;
             position: relative;
         }
         .jurusan-card img {
-            transition: var(--transition-smooth);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .jurusan-card:hover { 
-            transform: translateY(-12px); 
-            box-shadow: 0 30px 60px rgba(10,37,64,0.08); 
+            transform: translateY(-10px); 
+            box-shadow: 0 25px 50px rgba(11,25,44,0.08); 
+            border-color: transparent;
         }
         .jurusan-card:hover img {
-            transform: scale(1.06);
+            transform: scale(1.08);
         }
 
-        /* Premium Buttons */
+        /* Custom Modern Buttons */
         .btn-spmb {
             background: var(--primary); 
             color: white !important;
@@ -204,109 +233,160 @@
             border-radius: 50px; 
             padding: 10px 24px; 
             border: none;
-            transition: var(--transition-smooth);
-            box-shadow: 0 4px 15px rgba(10, 37, 64, 0.15);
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(11, 25, 44, 0.2);
         }
         .btn-spmb:hover { 
             background: var(--secondary); 
             color: var(--primary) !important;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.25);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
         }
         
         .btn-hero {
             background: var(--secondary);
             color: var(--primary) !important;
-            font-weight: 600;
+            font-weight: 700;
             border-radius: 50px;
-            transition: var(--transition-smooth);
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+            padding: 14px 32px;
+            transition: var(--transition);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.25);
         }
         .btn-hero:hover {
             background: #ffffff;
             color: var(--primary) !important;
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.25);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
         }
 
-        /* Modern Form Inputs */
+        /* Premium SPMB Form Card */
         .premium-form-card {
             background: #ffffff;
-            border: 1px solid rgba(0,0,0,0.03);
-            border-radius: 24px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.06);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--radius-lg);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
         }
         .form-control, .form-select {
-            padding: 12px 18px;
+            padding: 14px 18px;
             border-radius: 12px;
-            border: 1px solid #e2e8f0;
+            border: 1px solid #cbd5e1;
             font-size: 0.9rem;
-            transition: var(--transition-smooth);
+            transition: var(--transition);
         }
         .form-control:focus, .form-select:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 4px rgba(10, 37, 64, 0.08);
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.12);
             color: var(--text-dark);
         }
         .btn-submit-form {
             background: var(--primary);
             color: white;
             border-radius: 12px;
-            padding: 14px;
-            transition: var(--transition-smooth);
+            padding: 16px;
+            font-weight: 700;
+            transition: var(--transition);
         }
         .btn-submit-form:hover {
-            background: #14375a;
+            background: var(--primary-light);
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(10, 37, 64, 0.15);
+            box-shadow: 0 10px 25px rgba(11, 25, 44, 0.25);
         }
 
         /* Sections padding */
         section {
-            padding: 100px 0 !important;
+            padding: 90px 0 !important;
+        }
+
+        /* Responsive Mobile Touches */
+        @media (max-width: 991.98px) {
+            section { padding: 60px 0 !important; }
+            .hero { min-height: 70vh; padding: 100px 0 60px 0; text-align: center; }
+            .hero-stats { margin-top: 30px; padding: 15px; }
+            .navbar-collapse {
+                background: #ffffff;
+                padding: 20px;
+                border-radius: 16px;
+                box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+                margin-top: 10px;
+            }
+        }
+
+        /* Modern Floating Action Button */
+        .floating-wa {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25d366;
+            color: white;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: var(--transition);
+        }
+        .floating-wa:hover {
+            transform: scale(1.1);
+            color: white;
         }
 
         /* Footer Accent */
         footer { 
-            background: #06182c; 
-            color: rgba(255,255,255,0.8); 
-            font-size: 0.9rem;
+            background: #061221; 
+            color: rgba(255,255,255,0.75); 
+            font-size: 0.88rem;
         }
         footer h5, footer h6 {
             color: #ffffff;
-            font-weight: 600;
-            margin-bottom: 20px;
+            font-weight: 700;
+            margin-bottom: 22px;
         }
         footer a {
-            transition: var(--transition-smooth);
-            opacity: 0.7;
+            transition: var(--transition);
+            opacity: 0.75;
         }
         footer a:hover {
             color: var(--secondary) !important;
             opacity: 1;
-            transform: translateY(-3px);
+            padding-left: 4px;
         }
     </style>
 </head>
 <body>
 
-<!-- Navbar -->
+<div class="top-bar d-none d-lg-block py-2">
+    <div class="container d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center gap-4">
+            <span><i class="fas fa-school me-2 text-warning"></i>NPSN: 69989796</span>
+            <span><i class="fas fa-map-marker-alt me-2 text-warning"></i>Ciroyom, Tasikmalaya, Jawa Barat</span>
+        </div>
+        <div class="d-flex align-items-center gap-3">
+            <a href="mailto:info@smknbojonggambir.sch.id" class="text-white text-decoration-none"><i class="fas fa-envelope me-1 text-warning"></i> info@smknbojonggambir.sch.id</a>
+            <span class="opacity-25">|</span>
+            <a href="tel:+6285333332232" class="text-white text-decoration-none"><i class="fas fa-phone me-1 text-warning"></i> +62 853-3333-2232</a>
+        </div>
+    </div>
+</div>
+
 <nav class="navbar navbar-expand-xl sticky-top">
     <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="#">
-            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgz1tbb8TSawO2lHGi_GXN3Il5CtrN_K125hSy7D8NxvBFL6bywiebvkalj_6oRIBVxEm_zj84j6ZAlhKmaEOqjIeGHXe9SWw0HQipKs3aL8iy7K1Dc_Pd9SHMVZsOQrb99qTK78Wmee7StIKKzzfST5YU_CkGSAz3MuMJsrSL_nHt37c5AzIe8B7HodnQ/s320/LOGO%20SMKN%20BOJONGGAMBIR.png" width="46" class="me-3">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgz1tbb8TSawO2lHGi_GXN3Il5CtrN_K125hSy7D8NxvBFL6bywiebvkalj_6oRIBVxEm_zj84j6ZAlhKmaEOqjIeGHXe9SWw0HQipKs3aL8iy7K1Dc_Pd9SHMVZsOQrb99qTK78Wmee7StIKKzzfST5YU_CkGSAz3MuMJsrSL_nHt37c5AzIe8B7HodnQ/s320/LOGO%20SMKN%20BOJONGGAMBIR.png" width="44" alt="Logo SMKN Bojonggambir" class="me-3">
             <div>
-                <span class="fw-bold d-block text-dark tracking-tight" style="font-size: 1.1rem;">SMKN BOJONGGAMBIR</span>
-                <small class="text-muted fw-semibold" style="font-size: 0.65rem; letter-spacing: 0.05em;">TASIKMALAYA - JAWA BARAT</small>
+                <span class="fw-bold d-block text-dark tracking-tight" style="font-size: 1.05rem;">SMKN BOJONGGAMBIR</span>
+                <small class="text-muted fw-bold d-block" style="font-size: 0.62rem; letter-spacing: 0.08em;">TASIKMALAYA • JAWA BARAT</small>
             </div>
         </a>
-        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <button class="navbar-toggler border-0 p-2 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-label="Toggle Navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="mainNav">
-            <ul class="navbar-nav ms-auto align-items-center">
-                <!-- Menu Beranda -->
+            <ul class="navbar-nav ms-auto align-items-xl-center">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Beranda</a>
                     <ul class="dropdown-menu">
@@ -316,7 +396,6 @@
                     </ul>
                 </li>
 
-                <!-- Menu Tentang Kami -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Tentang Kami</a>
                     <ul class="dropdown-menu">
@@ -331,11 +410,9 @@
                     </ul>
                 </li>
 
-                <!-- Menu PTK (Ditambahkan Baru) -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">PTK</a>
-                    <!-- Ditambahkan max-height & overflow agar menu dengan data panjang tidak menutupi layar -->
-                    <ul class="dropdown-menu" style="max-height: 400px; overflow-y: auto;">
+                    <ul class="dropdown-menu menu-ptk-scroll" style="max-height: 380px; overflow-y: auto;">
                         <li><a class="dropdown-item" href="https://iman.smknbojonggambir.sch.id" target="_blank">Iman Rahmat, S. Pd. I</a></li>
                         <li><a class="dropdown-item" href="https://seni.smknbojonggambir.sch.id" target="_blank">Seni Sri Astuti, S. Pd.</a></li>
                         <li><a class="dropdown-item" href="https://rahmayanti.smknbojonggambir.sch.id" target="_blank">Rahmayanti Rahayu, S.Pd.</a></li>
@@ -367,7 +444,6 @@
                     </ul>
                 </li>
 
-                <!-- Menu Program -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Program</a>
                     <ul class="dropdown-menu">
@@ -380,7 +456,6 @@
                     </ul>
                 </li>
 
-                <!-- Menu Alumni -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Alumni</a>
                     <ul class="dropdown-menu">
@@ -389,7 +464,6 @@
                     </ul>
                 </li>
 
-                <!-- Menu Hubungi Kami -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Hubungi Kami</a>
                     <ul class="dropdown-menu">
@@ -398,149 +472,170 @@
                     </ul>
                 </li>
 
-                <li class="nav-item ms-xl-4 mt-3 mt-xl-0"><a class="btn btn-spmb" href="#spmb">SPMB 2026</a></li>
+                <li class="nav-item ms-xl-3 mt-3 mt-xl-0">
+                    <a class="btn btn-spmb text-uppercase tracking-wider" href="#spmb">SPMB 2026</a>
+                </li>
             </ul>
         </div>
     </div>
 </nav>
 
-<!-- Hero Section -->
 <header class="hero">
-    <div class="container" data-aos="fade-up" data-aos-duration="1000">
-        <h1 class="display-3 fw-bold mb-3">Selamat Datang di <br>Era Digital SMKN Bojonggambir</h1>
-        <p class="lead mb-4 fs-4 fw-light">Pusat Keunggulan Pendidikan Vokasi 2026</p>
-        <a href="#spmb" class="btn btn-hero btn-lg px-5 py-3 fs-6 text-uppercase tracking-wider fw-bold">DAFTAR SEKARANG</a>
+    <div class="container">
+        <div class="row justify-content-lg-start justify-content-center">
+            <div class="col-lg-9 col-xl-8" data-aos="fade-up" data-aos-duration="1000">
+                <div class="hero-badge mb-3">
+                    <i class="fas fa-award text-warning"></i>
+                    <span>SEKOLAH PUSAT KEUNGGULAN 2026</span>
+                </div>
+                <h1 class="display-4 fw-extrabold mb-3 text-white lh-sm">
+                    Selamat Datang di <br>
+                    <span class="text-warning">Era Digital</span> SMKN Bojonggambir
+                </h1>
+                <p class="lead mb-4 opacity-90 fs-5 fw-normal text-light">
+                    Menciptakan Sumber Daya Manusia Vokasi Berkarakter, Unggul, Kreatif, dan Siap Bersaing di Era Global.
+                </p>
+                <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
+                    <a href="#spmb" class="btn btn-hero text-uppercase">DAFTAR SEKARANG <i class="fas fa-arrow-right ms-2"></i></a>
+                    <a href="#jurusan" class="btn btn-outline-light rounded-pill px-4 py-3 fw-semibold fs-6">JELAJAHI JURUSAN</a>
+                </div>
+
+                <div class="hero-stats row g-3 text-center text-lg-start align-items-center">
+                    <div class="col-6 col-sm-4">
+                        <h4 class="fw-bold mb-0 text-warning">2 Jurusan</h4>
+                        <small class="text-light opacity-75">APHP &amp; DKV</small>
+                    </div>
+                    <div class="col-6 col-sm-4">
+                        <h4 class="fw-bold mb-0 text-warning">28+ PTK</h4>
+                        <small class="text-light opacity-75">Tenaga Pendidik</small>
+                    </div>
+                    <div class="col-12 col-sm-4">
+                        <h4 class="fw-bold mb-0 text-warning">100%</h4>
+                        <small class="text-light opacity-75">Siap Kerja &amp; Wirausaha</small>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </header>
 
-<!-- Sambutan Kepala Sekolah -->
 <section class="bg-white" id="sambutan">
     <div class="container">
         <div class="row align-items-center g-5">
             <div class="col-lg-5 text-center" data-aos="fade-right" data-aos-duration="1000">
                 <div class="img-wrap-kepsek">
-                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEipRnC3Eu85TxYPTJV9h_U0qtzwy6VJFD_z7OGz2q4ed7p18Wc63FLqQhh-3Ek35uAzgflz_hH4H4lMyJiAsFSSIzGGpEQnLN2tESYf6GulaAuWvRHRDbimCdlgxe0W1s3-gd9_IsNx2Sylql46dHXCO3vyVz9x26h6wfBL7R5wuoPylQlqenZkMvTrQ-U" class="img-kepsek" alt="Kepala Sekolah">
+                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEipRnC3Eu85TxYPTJV9h_U0qtzwy6VJFD_z7OGz2q4ed7p18Wc63FLqQhh-3Ek35uAzgflz_hH4H4lMyJiAsFSSIzGGpEQnLN2tESYf6GulaAuWvRHRDbimCdlgxe0W1s3-gd9_IsNx2Sylql46dHXCO3vyVz9x26h6wfBL7R5wuoPylQlqenZkMvTrQ-U" class="img-kepsek" alt="Kepala Sekolah SMKN Bojonggambir">
                 </div>
             </div>
             <div class="col-lg-7" data-aos="fade-left" data-aos-duration="1000">
-                <h6 class="text-primary fw-bold text-uppercase tracking-widest mb-2" style="font-size: 0.8rem;">Sambutan Kepala Sekolah</h6>
-                <h2 class="fw-bold text-dark mb-4" style="font-size: 2.5rem;">Iman Rahmat, S. Pd. I</h2>
-                <p class="text-muted mb-4 fs-5 fw-light" style="font-style: italic;">Assalamu’alaikum Warahmatullahi Wabarakatuh,</p>
-                <p class="text-secondary-light mb-4 opacity-90 lh-lg text-muted">Selamat datang di era baru SMKN Bojonggambir tahun 2026. Sebagai institusi pendidikan vokasi, kami berkomitmen untuk melahirkan lulusan yang tidak hanya cerdas secara intelektual, tetapi juga kreatif, mandiri, dan berkarakter kuat.</p>
-                <p class="text-secondary-light mb-5 opacity-90 lh-lg text-muted">Melalui jurusan <strong>APHP</strong> dan <strong>DKV</strong>, kami mengintegrasikan teknologi terkini untuk memastikan siswa kami siap menghadapi tantangan industri global. Mari melangkah bersama menuju masa depan yang lebih gemilang.</p>
+                <span class="badge bg-primary-subtle text-primary fw-bold text-uppercase px-3 py-2 rounded-pill mb-3">Sambutan Kepala Sekolah</span>
+                <h2 class="fw-bold text-dark mb-3 display-6">Iman Rahmat, S. Pd. I</h2>
+                <p class="text-muted mb-4 fs-5 fw-normal fst-italic">Assalamu’alaikum Warahmatullahi Wabarakatuh,</p>
+                <p class="text-secondary mb-3 lh-lg">Selamat datang di era baru SMKN Bojonggambir tahun 2026. Sebagai institusi pendidikan vokasi, kami berkomitmen untuk melahirkan lulusan yang tidak hanya cerdas secara intelektual, tetapi juga kreatif, mandiri, dan berkarakter kuat.</p>
+                <p class="text-secondary mb-4 lh-lg">Melalui jurusan <strong>APHP</strong> dan <strong>DKV</strong>, kami mengintegrasikan teknologi terkini untuk memastikan siswa kami siap menghadapi tantangan industri global. Mari melangkah bersama menuju masa depan yang lebih gemilang.</p>
                 
-                <div class="p-4 border-start border-4 border-warning bg-light rounded-end-3">
-                    <p class="fw-bold mb-0 text-dark">Iman Rahmat, S. Pd. I</p>
-                    <small class="text-muted fw-medium">NIP: 19901017 202321 1 007</small>
+                <div class="p-4 border-start border-4 border-warning bg-light rounded-end-4 shadow-sm">
+                    <h6 class="fw-bold mb-1 text-dark">Iman Rahmat, S. Pd. I</h6>
+                    <small class="text-muted fw-semibold">NIP: 19901017 202321 1 007</small>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- UPDATE BARU: Pusat Informasi & Agenda (4 Kolom) -->
 <section class="bg-light" id="informasi">
     <div class="container">
         <div class="text-center mb-5" data-aos="fade-up">
-            <h6 class="text-primary fw-bold text-uppercase tracking-widest mb-2" style="font-size: 0.8rem;">Pusat Informasi</h6>
-            <h2 class="fw-bold text-dark">Informasi & Agenda Sekolah</h2>
+            <span class="badge bg-primary-subtle text-primary fw-bold text-uppercase px-3 py-2 rounded-pill mb-2">Pusat Informasi</span>
+            <h2 class="fw-bold text-dark display-6">Informasi &amp; Agenda Sekolah</h2>
+            <p class="text-muted">Dapatkan berita terbaru dan jadwal kegiatan mendatang SMKN Bojonggambir</p>
         </div>
         <div class="row g-4">
             
-            <!-- Kolom 1: Berita Utama -->
             <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
-                <div class="card info-card h-100 border-0 shadow-sm bg-white overflow-hidden">
-                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEj2bDHDUDL1ThlK0KSNCIbMWNs971VvnH-VCG7Bh0qN7kjcOlx5J7MwgC_VGgz0YNy0BTabaXKwvoQGKjiZD1Ae8Ed45FXo8yHeCrTRNILvlr7JDOCfowrqUnaZeN9t7TR6Hr4VrAx5LJYUyw0rZl41hCxi-vdVAfHkgnOqtb7zNsklwbGgErbXnWrHKmo" class="card-img-top" alt="Berita Utama" style="height: 160px; object-fit: cover;">
-                    <div class="card-body p-4">
-                        <span class="badge bg-danger mb-3 px-2 py-1">Berita Utama</span>
-                        <h6 class="card-title fw-bold lh-base text-dark mb-2">Pembinaan GTK Bersama Pengawas Pembina untuk Meningkatkan Profesionalisme Pendidik di SMKN Bojonggambir</h6>
-                        <p class="card-text text-muted small mb-0" style="font-size: 0.85rem;">SMKN Bojonggambir melaksanakan kegiatan Pembinaan Guru dan Tenaga Kependidikan (GTK) bersama Bapak Pengawas Pembina, Dede Nana Zohari, M.Pd. pada Kamis, 11 Juni 2026.</p>
-                    </div>
-                    <div class="card-footer bg-white border-0 p-4 pt-0">
-                        <a href="#" class="text-primary text-decoration-none fw-semibold small">Baca detail &rarr;</a>
+                <div class="card info-card h-100 bg-white overflow-hidden shadow-sm">
+                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEj2bDHDUDL1ThlK0KSNCIbMWNs971VvnH-VCG7Bh0qN7kjcOlx5J7MwgC_VGgz0YNy0BTabaXKwvoQGKjiZD1Ae8Ed45FXo8yHeCrTRNILvlr7JDOCfowrqUnaZeN9t7TR6Hr4VrAx5LJYUyw0rZl41hCxi-vdVAfHkgnOqtb7zNsklwbGgErbXnWrHKmo" class="card-img-top" alt="Pembinaan GTK" style="height: 170px; object-fit: cover;">
+                    <div class="card-body p-4 d-flex flex-column">
+                        <div>
+                            <span class="badge bg-danger mb-3 px-2.5 py-1.5 fw-semibold">Berita Utama</span>
+                            <h6 class="card-title fw-bold lh-base text-dark mb-2">Pembinaan GTK Bersama Pengawas Pembina</h6>
+                        </div>
+                        <p class="card-text text-muted small mb-3 flex-grow-1" style="font-size: 0.85rem;">SMKN Bojonggambir melaksanakan kegiatan Pembinaan Guru dan Tenaga Kependidikan (GTK) bersama Bapak Pengawas Pembina, Dede Nana Zohari, M.Pd. pada Kamis, 11 Juni 2026.</p>
+                        <a href="#" class="text-primary text-decoration-none fw-bold small">Baca detail <i class="fas fa-arrow-right ms-1"></i></a>
                     </div>
                 </div>
             </div>
 
-            <!-- Kolom 2: Berita Terbaru -->
             <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
-                <div class="card info-card h-100 border-0 shadow-sm bg-white overflow-hidden">
-                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEj4AYwreX8ibsP04cUgqLZKbc2VVaLdnF1ybLcxgNVHC8eeyjOL3Dsy2bhA4m5jMYjG18NWCvrKjfUA69NfLP5Ek8-Iybn-ymxShkaJ57IqHrm8pHUvvRl8w5e7yGhcFd1eIKebO95owRyJAQ0DbcpWBm1UjKQ5LSh_VwDmCjSS3QRAUT2cx6ShAiMZCj0" class="card-img-top" alt="Berita Terbaru" style="height: 160px; object-fit: cover;">
-                    <div class="card-body p-4">
-                        <span class="badge bg-primary mb-3 px-2 py-1">Berita Terbaru</span>
-                        <h6 class="card-title fw-bold lh-base text-dark mb-2">Pendidikan Karakter Pancawaluya SMKN Bojonggambir Menuju Vokasi Unggul Jabar Istimewa</h6>
-                        <p class="card-text text-muted small mb-0" style="font-size: 0.85rem;">Simak dokumentasi kegiatan Pendidikan Karakter Pancawaluya SMKN Bojonggambir sebagai upaya membentuk peserta didik yang Cageur, Bageur, Bener, Pinter, dan Singer demi terciptanya sekolah harmonis dan produktif.</p>
-                    </div>
-                    <div class="card-footer bg-white border-0 p-4 pt-0">
-                        <a href="#" class="text-primary text-decoration-none fw-semibold small">Baca detail &rarr;</a>
+                <div class="card info-card h-100 bg-white overflow-hidden shadow-sm">
+                    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEj4AYwreX8ibsP04cUgqLZKbc2VVaLdnF1ybLcxgNVHC8eeyjOL3Dsy2bhA4m5jMYjG18NWCvrKjfUA69NfLP5Ek8-Iybn-ymxShkaJ57IqHrm8pHUvvRl8w5e7yGhcFd1eIKebO95owRyJAQ0DbcpWBm1UjKQ5LSh_VwDmCjSS3QRAUT2cx6ShAiMZCj0" class="card-img-top" alt="Pancasila Karakter" style="height: 170px; object-fit: cover;">
+                    <div class="card-body p-4 d-flex flex-column">
+                        <div>
+                            <span class="badge bg-primary mb-3 px-2.5 py-1.5 fw-semibold">Berita Terbaru</span>
+                            <h6 class="card-title fw-bold lh-base text-dark mb-2">Pendidikan Karakter Pancawaluya SMKN Bojonggambir</h6>
+                        </div>
+                        <p class="card-text text-muted small mb-3 flex-grow-1" style="font-size: 0.85rem;">Dokumentasi kegiatan Pendidikan Karakter Pancawaluya untuk membentuk peserta didik Cageur, Bageur, Bener, Pinter, dan Singer.</p>
+                        <a href="#" class="text-primary text-decoration-none fw-bold small">Baca detail <i class="fas fa-arrow-right ms-1"></i></a>
                     </div>
                 </div>
             </div>
 
-            <!-- Kolom 3: Agenda Kegiatan 1 -->
             <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
-                <div class="card info-card h-100 border-0 shadow-sm bg-white">
-                    <div class="card-body p-4 d-flex flex-column">
-                        <h5 class="fw-bold mb-4 border-bottom pb-2 text-dark fs-6 text-uppercase">Agenda Kegiatan</h5>
-                        
-                        <!-- Agenda Item 1 -->
-                        <div class="d-flex mb-4 align-items-center">
-                            <div class="bg-light rounded-3 p-2 text-center me-3 border" style="min-width: 65px;">
-                                <span class="d-block fw-bold text-primary fs-5 lh-1">15</span>
-                                <span class="d-block text-muted" style="font-size: 0.7rem;">JULI</span>
-                            </div>
-                            <div>
-                                <h6 class="fw-bold mb-1 text-dark" style="font-size: 0.9rem;">Masa Pengenalan Lingkungan Sekolah</h6>
-                                <p class="text-muted small mb-0" style="font-size: 0.8rem;"><i class="far fa-clock me-1 text-warning"></i> 07:00 - Selesai</p>
-                            </div>
+                <div class="card info-card h-100 bg-white shadow-sm p-4">
+                    <h6 class="fw-bold mb-4 border-bottom pb-2 text-dark text-uppercase tracking-wider">
+                        <i class="far fa-calendar-alt text-primary me-2"></i>Agenda Kegiatan
+                    </h6>
+                    
+                    <div class="d-flex mb-4 align-items-center">
+                        <div class="bg-primary-subtle text-primary rounded-3 p-2 text-center me-3" style="min-width: 62px;">
+                            <span class="d-block fw-bold fs-4 lh-1">15</span>
+                            <span class="d-block fw-semibold" style="font-size: 0.68rem;">JULI</span>
                         </div>
-
-                        <!-- Agenda Item 2 -->
-                        <div class="d-flex align-items-center">
-                            <div class="bg-light rounded-3 p-2 text-center me-3 border" style="min-width: 65px;">
-                                <span class="d-block fw-bold text-primary fs-5 lh-1">28</span>
-                                <span class="d-block text-muted" style="font-size: 0.7rem;">JULI</span>
-                            </div>
-                            <div>
-                                <h6 class="fw-bold mb-1 text-dark" style="font-size: 0.9rem;">Workshop Digital Talent DKV</h6>
-                                <p class="text-muted small mb-0" style="font-size: 0.8rem;"><i class="far fa-clock me-1 text-warning"></i> 08:30 - 14:00</p>
-                            </div>
+                        <div>
+                            <h6 class="fw-bold mb-1 text-dark" style="font-size: 0.88rem;">Masa Pengenalan Lingkungan Sekolah</h6>
+                            <p class="text-muted small mb-0" style="font-size: 0.78rem;"><i class="far fa-clock text-warning me-1"></i> 07:00 - Selesai</p>
                         </div>
+                    </div>
 
+                    <div class="d-flex align-items-center">
+                        <div class="bg-primary-subtle text-primary rounded-3 p-2 text-center me-3" style="min-width: 62px;">
+                            <span class="d-block fw-bold fs-4 lh-1">28</span>
+                            <span class="d-block fw-semibold" style="font-size: 0.68rem;">JULI</span>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold mb-1 text-dark" style="font-size: 0.88rem;">Workshop Digital Talent DKV</h6>
+                            <p class="text-muted small mb-0" style="font-size: 0.78rem;"><i class="far fa-clock text-warning me-1"></i> 08:30 - 14:00</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Kolom 4: Agenda Kegiatan 2 -->
             <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
-                <div class="card info-card h-100 border-0 shadow-sm bg-white">
-                    <div class="card-body p-4 d-flex flex-column">
-                        <h5 class="fw-bold mb-4 border-bottom pb-2 text-dark fs-6 text-uppercase">Agenda Lanjutan</h5>
-                        
-                        <!-- Agenda Item 3 -->
-                        <div class="d-flex mb-4 align-items-center">
-                            <div class="bg-light rounded-3 p-2 text-center me-3 border" style="min-width: 65px;">
-                                <span class="d-block fw-bold text-primary fs-5 lh-1">10</span>
-                                <span class="d-block text-muted" style="font-size: 0.7rem;">AGS</span>
-                            </div>
-                            <div>
-                                <h6 class="fw-bold mb-1 text-dark" style="font-size: 0.9rem;">Panen Karya & Bazar APHP</h6>
-                                <p class="text-muted small mb-0" style="font-size: 0.8rem;"><i class="fas fa-map-marker-alt me-1 text-warning"></i> Lapangan Utama</p>
-                            </div>
+                <div class="card info-card h-100 bg-white shadow-sm p-4">
+                    <h6 class="fw-bold mb-4 border-bottom pb-2 text-dark text-uppercase tracking-wider">
+                        <i class="far fa-calendar-check text-primary me-2"></i>Agenda Lanjutan
+                    </h6>
+                    
+                    <div class="d-flex mb-4 align-items-center">
+                        <div class="bg-primary-subtle text-primary rounded-3 p-2 text-center me-3" style="min-width: 62px;">
+                            <span class="d-block fw-bold fs-4 lh-1">10</span>
+                            <span class="d-block fw-semibold" style="font-size: 0.68rem;">AGS</span>
                         </div>
-
-                        <!-- Agenda Item 4 -->
-                        <div class="d-flex align-items-center">
-                            <div class="bg-light rounded-3 p-2 text-center me-3 border" style="min-width: 65px;">
-                                <span class="d-block fw-bold text-primary fs-5 lh-1">17</span>
-                                <span class="d-block text-muted" style="font-size: 0.7rem;">AGS</span>
-                            </div>
-                            <div>
-                                <h6 class="fw-bold mb-1 text-dark" style="font-size: 0.9rem;">Upacara HUT RI ke-81</h6>
-                                <p class="text-muted small mb-0" style="font-size: 0.8rem;"><i class="fas fa-flag me-1 text-warning"></i> Wajib Seluruh Siswa</p>
-                            </div>
+                        <div>
+                            <h6 class="fw-bold mb-1 text-dark" style="font-size: 0.88rem;">Panen Karya &amp; Bazar APHP</h6>
+                            <p class="text-muted small mb-0" style="font-size: 0.78rem;"><i class="fas fa-map-marker-alt text-warning me-1"></i> Lapangan Utama</p>
                         </div>
+                    </div>
 
+                    <div class="d-flex align-items-center">
+                        <div class="bg-primary-subtle text-primary rounded-3 p-2 text-center me-3" style="min-width: 62px;">
+                            <span class="d-block fw-bold fs-4 lh-1">17</span>
+                            <span class="d-block fw-semibold" style="font-size: 0.68rem;">AGS</span>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold mb-1 text-dark" style="font-size: 0.88rem;">Upacara HUT RI ke-81</h6>
+                            <p class="text-muted small mb-0" style="font-size: 0.78rem;"><i class="fas fa-flag text-warning me-1"></i> Wajib Seluruh Siswa</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -549,31 +644,43 @@
     </div>
 </section>
 
-<!-- Jurusan APHP & DKV -->
 <section class="bg-white" id="jurusan">
     <div class="container text-center">
-        <h6 class="text-primary fw-bold text-uppercase tracking-widest mb-2" style="font-size: 0.8rem;" data-aos="fade-up">Kompetensi Keahlian</h6>
-        <h2 class="fw-bold mb-5 text-dark" data-aos="fade-up" data-aos-delay="100">Profil Jurusan Unggulan</h2>
+        <span class="badge bg-primary-subtle text-primary fw-bold text-uppercase px-3 py-2 rounded-pill mb-2" data-aos="fade-up">Kompetensi Keahlian</span>
+        <h2 class="fw-bold mb-3 text-dark display-6" data-aos="fade-up" data-aos-delay="100">Profil Jurusan Unggulan</h2>
+        <p class="text-muted mb-5" data-aos="fade-up" data-aos-delay="150">Pilih program keahlian terbaik sesuai passion dan minat masa depanmu</p>
+        
         <div class="row g-4 justify-content-center">
-            <div class="col-md-6 col-lg-5" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="1000">
-                <div class="card jurusan-card h-100 border shadow-sm">
+            <div class="col-md-6 col-lg-5" data-aos="fade-right" data-aos-delay="200">
+                <div class="card jurusan-card h-100 text-start shadow-sm">
                     <div class="jurusan-card-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=1470&auto=format&fit=crop" class="card-img-top" alt="APHP" style="height: 260px; object-fit: cover;">
+                        <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=1470&auto=format&fit=crop" class="card-img-top" alt="APHP" style="height: 250px; object-fit: cover;">
+                        <span class="position-absolute top-0 end-0 bg-primary text-white fw-semibold small px-3 py-1.5 m-3 rounded-pill">Agribisnis</span>
                     </div>
-                    <div class="card-body p-4 text-start">
-                        <h4 class="fw-bold text-dark mb-3">APHP</h4>
-                        <p class="text-muted lh-relaxed mb-0" style="font-size: 0.95rem;">Agribisnis Pengolahan Hasil Pertanian - Membangun kemandirian pangan dengan teknologi pengolahan modern.</p>
+                    <div class="card-body p-4">
+                        <h4 class="fw-bold text-dark mb-2">APHP</h4>
+                        <p class="text-muted lh-relaxed mb-3" style="font-size: 0.92rem;">Agribisnis Pengolahan Hasil Pertanian - Membangun kemandirian pangan dengan teknologi pengolahan pangan modern dan inovasi wirausaha.</p>
+                        <div class="d-flex gap-2">
+                            <span class="badge bg-light text-secondary border">Pengolahan Pangan</span>
+                            <span class="badge bg-light text-secondary border">Keamanan Pangan</span>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-5" data-aos="zoom-in" data-aos-delay="300" data-aos-duration="1000">
-                <div class="card jurusan-card h-100 border shadow-sm">
+
+            <div class="col-md-6 col-lg-5" data-aos="fade-left" data-aos-delay="300">
+                <div class="card jurusan-card h-100 text-start shadow-sm">
                     <div class="jurusan-card-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1470&auto=format&fit=crop" class="card-img-top" alt="DKV" style="height: 260px; object-fit: cover;">
+                        <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1470&auto=format&fit=crop" class="card-img-top" alt="DKV" style="height: 250px; object-fit: cover;">
+                        <span class="position-absolute top-0 end-0 bg-warning text-dark fw-bold small px-3 py-1.5 m-3 rounded-pill">Kreatif &amp; Digital</span>
                     </div>
-                    <div class="card-body p-4 text-start">
-                        <h4 class="fw-bold text-dark mb-3">DKV</h4>
-                        <p class="text-muted lh-relaxed mb-0" style="font-size: 0.95rem;">Desain Komunikasi Visual - Mencetak kreator digital, desainer, dan seniman visual profesional.</p>
+                    <div class="card-body p-4">
+                        <h4 class="fw-bold text-dark mb-2">DKV</h4>
+                        <p class="text-muted lh-relaxed mb-3" style="font-size: 0.92rem;">Desain Komunikasi Visual - Mencetak kreator digital, desainer grafis, videografer, dan seniman visual profesional abad ke-21.</p>
+                        <div class="d-flex gap-2">
+                            <span class="badge bg-light text-secondary border">Desain Grafis</span>
+                            <span class="badge bg-light text-secondary border">Multimedia</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -581,41 +688,54 @@
     </div>
 </section>
 
-<!-- SPMB Form -->
-<section class="py-5 bg-primary text-white" id="spmb" style="background: linear-gradient(135deg, #0a2540 0%, #163e65 100%) !important;">
-    <div class="container py-4">
+<section class="py-5 text-white position-relative overflow-hidden" id="spmb" style="background: linear-gradient(135deg, #0b192c 0%, #1e3e62 100%) !important;">
+    <div class="container py-4 position-relative z-2">
         <div class="row justify-content-center align-items-center g-5">
             <div class="col-lg-5 text-center text-lg-start" data-aos="fade-right" data-aos-duration="1000">
+                <span class="badge bg-warning text-dark fw-bold text-uppercase px-3 py-2 rounded-pill mb-3">PPDB Online 2026</span>
                 <h2 class="fw-bold mb-3 text-white display-5">Mulai Langkah Gemilangmu</h2>
-                <p class="opacity-75 fw-light lh-lg">Bergabunglah bersama pusat keunggulan vokasi digital. Kuota pendaftaran Tahun Ajaran 2026 sangat terbatas, daftarkan diri Anda segera melalui formulir elektronik ini.</p>
+                <p class="opacity-80 fw-normal lh-lg mb-4">Bergabunglah bersama pusat keunggulan vokasi digital. Kuota pendaftaran Tahun Ajaran 2026 terbatas. Daftarkan diri Anda secara online sekarang.</p>
+                <div class="d-flex align-items-center gap-3 justify-content-center justify-content-lg-start">
+                    <i class="fas fa-headset fs-2 text-warning"></i>
+                    <div>
+                        <small class="d-block opacity-75">Butuh bantuan pendaftaran?</small>
+                        <span class="fw-bold text-white">+62 853-3333-2232</span>
+                    </div>
+                </div>
             </div>
+
             <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000">
                 <div class="premium-form-card p-4 p-sm-5 text-dark">
-                    <h3 class="fw-bold text-center mb-4 text-dark" style="font-size: 1.5rem;">Pendaftaran Siswa Baru 2026</h3>
+                    <h3 class="fw-bold text-center mb-1 text-dark" style="font-size: 1.4rem;">Pendaftaran Siswa Baru 2026</h3>
+                    <p class="text-muted text-center small mb-4">Isi data calon siswa di bawah ini dengan benar</p>
+                    
                     <form id="spmbForm">
                         <div class="mb-3">
-                            <label class="form-label fw-medium text-secondary small">Nama Lengkap</label>
-                            <input type="text" id="nama" class="form-control shadow-sm" placeholder="Sesuai Akte Kelahiran" required>
+                            <label class="form-label fw-semibold text-secondary small">Nama Lengkap</label>
+                            <input type="text" id="nama" class="form-control" placeholder="Sesuai Akte Kelahiran" required>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label fw-medium text-secondary small">Asal Sekolah</label>
-                            <input type="text" id="asal" class="form-control shadow-sm" placeholder="SMP/MTs" required>
+                            <label class="form-label fw-semibold text-secondary small">Asal Sekolah</label>
+                            <input type="text" id="asal" class="form-control" placeholder="SMP / MTs" required>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label fw-medium text-secondary small">Pilihan Jurusan</label>
-                            <select id="jurusanPilih" class="form-select shadow-sm">
-                                <option value="APHP">APHP (Agribisnis)</option>
-                                <option value="DKV">DKV (Desain Visual)</option>
+                            <label class="form-label fw-semibold text-secondary small">Pilihan Jurusan</label>
+                            <select id="jurusanPilih" class="form-select">
+                                <option value="APHP">APHP (Agribisnis Pengolahan Hasil Pertanian)</option>
+                                <option value="DKV">DKV (Desain Komunikasi Visual)</option>
                             </select>
                         </div>
                         <div class="mb-4">
-                            <label class="form-label fw-medium text-secondary small">Nomor WhatsApp Aktif</label>
-                            <input type="tel" id="wa" class="form-control shadow-sm" placeholder="08xxxx" required>
+                            <label class="form-label fw-semibold text-secondary small">Nomor WhatsApp Aktif</label>
+                            <input type="tel" id="wa" class="form-control" placeholder="08xxxxxxxxxx" required>
                         </div>
-                        <button type="submit" id="btnKirim" class="btn btn-submit-form btn-lg w-100 fw-semibold fs-6 shadow">KIRIM PENDAFTARAN</button>
+                        <button type="submit" id="btnKirim" class="btn btn-submit-form w-100 fs-6 shadow">
+                            KIRIM PENDAFTARAN <i class="fas fa-paper-plane ms-2"></i>
+                        </button>
                     </form>
+
                     <div id="notif" class="alert alert-success mt-4 d-none border-0 text-center rounded-3 shadow-sm">
-                        <i class="fas fa-circle-check me-2"></i> Pendaftaran Anda telah kami terima untuk Tahun Ajaran 2026.
+                        <i class="fas fa-check-circle me-2"></i> Pendaftaran Anda telah berhasil dikirim untuk Tahun Ajaran 2026!
                     </div>
                 </div>
             </div>
@@ -623,54 +743,49 @@
     </div>
 </section>
 
-<!-- Footer -->
-<footer class="py-5">
-    <div class="container py-4">
+<footer class="pt-5 pb-4">
+    <div class="container pt-3">
         <div class="row g-4">
-            <!-- Kolom 1: Profil Sekolah & Kontak -->
             <div class="col-lg-4 col-md-6">
                 <h5 class="text-warning text-uppercase tracking-wider">SMKN BOJONGGAMBIR</h5>
-                <p class="small opacity-70 lh-lg mt-3">NPSN: 69989796<br>Jl. Bojonggambir Kp. Mandalawangi RT005/005, Ciroyom, Kab. Tasikmalaya, Jawa Barat.</p>
-                <p class="small opacity-70 mb-2"><i class="fas fa-envelope me-2 text-warning"></i> info@smknbojonggambir.sch.id</p>
-                <p class="small opacity-70 mb-4"><i class="fas fa-phone me-2 text-warning"></i> +62 853-3333-2232</p>
+                <p class="small opacity-75 lh-lg mt-3">NPSN: 69989796<br>Jl. Bojonggambir Kp. Mandalawangi RT005/005, Ciroyom, Kab. Tasikmalaya, Jawa Barat.</p>
+                <p class="small opacity-75 mb-2"><i class="fas fa-envelope me-2 text-warning"></i> info@smknbojonggambir.sch.id</p>
+                <p class="small opacity-75 mb-4"><i class="fas fa-phone me-2 text-warning"></i> +62 853-3333-2232</p>
             </div>
 
-            <!-- Kolom 2: Tentang & PPDB Links -->
             <div class="col-lg-2 col-md-6">
-                <h6>Tentang & PPDB</h6>
+                <h6>Tentang &amp; PPDB</h6>
                 <ul class="list-unstyled small lh-lg">
                     <li><a href="#" class="text-white text-decoration-none d-inline-block py-1">Sejarah Sekolah</a></li>
                     <li><a href="#" class="text-white text-decoration-none d-inline-block py-1">Kunjungan Industri</a></li>
                     <li><a href="#" class="text-white text-decoration-none d-inline-block py-1">Unduh Dokumen</a></li>
                     <li><a href="#" class="text-white text-decoration-none d-inline-block py-1">Direktori GTK</a></li>
-                    <li><a href="#" class="text-white text-decoration-none d-inline-block py-1">Denah & Fasilitas</a></li>
+                    <li><a href="#" class="text-white text-decoration-none d-inline-block py-1">Denah &amp; Fasilitas</a></li>
                     <li><a href="#" class="text-white text-decoration-none d-inline-block py-1">Alur PPDB 2026</a></li>
                 </ul>
             </div>
 
-            <!-- Kolom 3: Akademik & TeFa Links -->
             <div class="col-lg-3 col-md-6">
-                <h6>Akademik & Inovasi</h6>
+                <h6>Akademik &amp; Inovasi</h6>
                 <ul class="list-unstyled small lh-lg">
                     <li><a href="#" class="text-white text-decoration-none d-inline-block py-1">Program Keahlian (APHP/DKV)</a></li>
                     <li><a href="#" class="text-white text-decoration-none d-inline-block py-1">E-Learning Sekolah</a></li>
-                    <li><a href="https://cobadulu-aku.my.canva.site/perpustakaan-digital-smk-negeri-bojonggambir" class="text-white text-decoration-none d-inline-block py-1">Perpustakaan Digital</a></li>
-                    <li><a href="https://simagu.smknbojonggambir.sch.id/" class="text-white text-decoration-none d-inline-block py-1">Agenda Akademik</a></li>
+                    <li><a href="https://cobadulu-aku.my.canva.site/perpustakaan-digital-smk-negeri-bojonggambir" target="_blank" class="text-white text-decoration-none d-inline-block py-1">Perpustakaan Digital</a></li>
+                    <li><a href="https://simagu.smknbojonggambir.sch.id/" target="_blank" class="text-white text-decoration-none d-inline-block py-1">Agenda Akademik</a></li>
                     <li><a href="#" class="text-white text-decoration-none d-inline-block py-1">Teaching Factory (TeFa)</a></li>
                     <li><a href="#" class="text-white text-decoration-none d-inline-block py-1">Karya Unggulan Siswa</a></li>
-                    <li><a href="http://presensigo.smknbojonggambir.sch.id/" class="text-white text-decoration-none d-inline-block py-1">Presensi GO</a></li>
+                    <li><a href="http://presensigo.smknbojonggambir.sch.id/" target="_blank" class="text-white text-decoration-none d-inline-block py-1">Presensi GO</a></li>
                 </ul>
             </div>
 
-            <!-- Kolom 4: Hubin & Kemitraan Links -->
             <div class="col-lg-3 col-md-6">
-                <h6>Hubin & Karir</h6>
+                <h6>Hubin &amp; Karir</h6>
                 <ul class="list-unstyled small lh-lg">
                     <li><a href="#" class="text-white text-decoration-none d-inline-block py-1">Praktik Kerja Lapangan (PKL)</a></li>
                     <li><a href="#" class="text-white text-decoration-none d-inline-block py-1">Bursa Kerja Khusus (BKK)</a></li>
                     <li><a href="#" class="text-white text-decoration-none d-inline-block py-1">Mitra Industri (IDUKA)</a></li>
-                    <li><a href="#" class="text-white text-decoration-none d-inline-block py-1">Bakti Sosial & Pengabdian</a></li>
-                    <li><a href="#" class="text-white text-decoration-none d-inline-block py-1">OSIS & Ekstrakurikuler</a></li>
+                    <li><a href="#" class="text-white text-decoration-none d-inline-block py-1">Bakti Sosial &amp; Pengabdian</a></li>
+                    <li><a href="#" class="text-white text-decoration-none d-inline-block py-1">OSIS &amp; Ekstrakurikuler</a></li>
                     <li><a href="#" class="text-white text-decoration-none d-inline-block py-1">Info Beasiswa</a></li>
                 </ul>
             </div>
@@ -678,7 +793,6 @@
 
         <hr class="my-4 opacity-10">
         
-        <!-- Paling Bawah: Hak Cipta & Media Sosial Lengkap -->
         <div class="row align-items-center">
             <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
                 <p class="small mb-0 opacity-50">&copy; 2026 SMK Negeri Bojonggambir. All rights reserved.</p>
@@ -696,12 +810,19 @@
     </div>
 </footer>
 
-<!-- JS Libraries -->
+<a href="https://wa.me/6285333332232" class="floating-wa" target="_blank" title="Hubungi Kami via WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 <script>
-    AOS.init({ duration: 1000, once: true });
+    AOS.init({ 
+        duration: 800, 
+        once: true,
+        easing: 'ease-out-cubic'
+    });
 
     // Link Google Apps Script Anda
     const SCRIPT_URL = 'GANTI_DENGAN_URL_WEB_APP_ANDA';
@@ -710,7 +831,7 @@
         e.preventDefault();
         const btn = document.getElementById('btnKirim');
         btn.disabled = true;
-        btn.innerText = 'Mengirim...';
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Mengirim...';
 
         const data = [
             document.getElementById('nama').value,
@@ -729,11 +850,12 @@
             document.getElementById('notif').classList.remove('d-none');
             document.getElementById('spmbForm').reset();
             btn.disabled = false;
-            btn.innerText = 'KIRIM PENDAFTARAN';
+            btn.innerHTML = 'KIRIM PENDAFTARAN <i class="fas fa-paper-plane ms-2"></i>';
         })
         .catch(err => {
-            alert('Kesalahan jaringan. Silahkan coba lagi.');
+            alert('Terjadi kesalahan jaringan atau konfigurasi script. Silahkan coba lagi.');
             btn.disabled = false;
+            btn.innerHTML = 'KIRIM PENDAFTARAN <i class="fas fa-paper-plane ms-2"></i>';
         });
     });
 </script>

@@ -5,22 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SMKN Bojonggambir - Pusat Keunggulan Pendidikan Vokasi 2026</title>
     
+    <!-- CSS Libraries -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
+        /* ================= ROOT VARIABLES ================= */
         :root { 
-            --primary: #0b192c; /* Navy Korporat Elegan */
+            --primary: #0b192c;
             --primary-light: #1e3e62;
-            --secondary: #d4af37; /* Champagne Gold Mewah */
+            --secondary: #d4af37;
             --secondary-hover: #bfa130;
             --accent: #0066ff;
-            --light-bg: #f8fafc; /* Surface clean modern */
+            --light-bg: #f8fafc;
             --card-border: #e2e8f0;
             --text-dark: #0f172a;
             --text-muted: #64748b;
@@ -29,6 +32,7 @@
             --radius-lg: 24px;
         }
 
+        /* ================= GLOBAL STYLES ================= */
         body { 
             font-family: 'Plus Jakarta Sans', 'Poppins', sans-serif; 
             color: var(--text-dark);
@@ -37,13 +41,16 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Typography Scaffolding */
         h1, h2, h3, h4, h5, h6 {
             letter-spacing: -0.025em;
             font-weight: 700;
         }
 
-        /* Top Bar Info */
+        section {
+            padding: 90px 0 !important;
+        }
+
+        /* ================= NAVIGATION & TOP BAR ================= */
         .top-bar {
             background: var(--primary);
             color: rgba(255, 255, 255, 0.8);
@@ -51,7 +58,6 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        /* Navbar Ultra-Modern Glassmorphism */
         .navbar { 
             background: rgba(255, 255, 255, 0.92) !important; 
             backdrop-filter: blur(16px);
@@ -60,14 +66,15 @@
             padding: 12px 0; 
             transition: var(--transition);
         }
+
         .navbar-brand img {
             transition: var(--transition);
         }
+
         .navbar-brand:hover img {
             transform: scale(1.05);
         }
         
-        /* Dropdown Customization */
         .nav-link { 
             color: #1e293b !important; 
             font-weight: 600; 
@@ -76,6 +83,7 @@
             transition: var(--transition);
             border-radius: 8px;
         }
+
         .nav-link:hover, .nav-link:focus { 
             color: var(--accent) !important; 
             background: rgba(0, 102, 255, 0.04);
@@ -88,6 +96,7 @@
             padding: 10px;
             animation: fadeInDropdown 0.25s cubic-bezier(0.16, 1, 0.3, 1);
         }
+
         .dropdown-item {
             border-radius: 8px;
             padding: 8px 14px;
@@ -96,16 +105,17 @@
             font-weight: 500;
             transition: var(--transition);
         }
+
         .dropdown-item:hover {
             background-color: rgba(11, 25, 44, 0.05);
             color: var(--primary);
             transform: translateX(4px);
         }
 
-        /* Custom Scrollbar Menu PTK */
         .menu-ptk-scroll::-webkit-scrollbar {
             width: 6px;
         }
+
         .menu-ptk-scroll::-webkit-scrollbar-thumb {
             background: #cbd5e1;
             border-radius: 10px;
@@ -116,7 +126,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Dynamic Hero Section */
+        /* ================= HERO SECTION ================= */
         .hero {
             position: relative;
             background: linear-gradient(135deg, rgba(11, 25, 44, 0.88) 0%, rgba(15, 23, 42, 0.75) 100%), 
@@ -130,6 +140,7 @@
             color: white; 
             padding: 120px 0 80px 0;
         }
+
         .hero-badge {
             display: inline-flex;
             align-items: center;
@@ -144,7 +155,6 @@
             letter-spacing: 0.05em;
         }
 
-        /* Floating Feature Highlights Counter */
         .hero-stats {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(15px);
@@ -154,12 +164,13 @@
             margin-top: 40px;
         }
 
-        /* Kepsek Section */
+        /* ================= KEPALA SEKOLAH ================= */
         .img-wrap-kepsek {
             position: relative;
             max-width: 360px; 
             margin: 0 auto; 
         }
+
         .img-wrap-kepsek::before {
             content: '';
             position: absolute;
@@ -172,6 +183,7 @@
             z-index: 1;
             transition: var(--transition);
         }
+
         .img-kepsek {
             position: relative;
             z-index: 2;
@@ -181,26 +193,28 @@
             height: auto;
             transition: var(--transition);
         }
+
         .img-wrap-kepsek:hover .img-kepsek {
             transform: translate(-6px, -6px);
         }
+
         .img-wrap-kepsek:hover::before {
             transform: translate(6px, 6px);
         }
 
-        /* Modern Info & Agenda Cards */
+        /* ================= CARDS & COMPONENTS ================= */
         .info-card {
             transition: var(--transition);
             border-radius: var(--radius-md);
             border: 1px solid var(--card-border) !important;
         }
+
         .info-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 20px 35px rgba(0,0,0,0.07) !important;
             border-color: rgba(0,102,255,0.2) !important;
         }
 
-        /* Jurusan Cards */
         .jurusan-card {
             border: 1px solid var(--card-border); 
             border-radius: var(--radius-lg); 
@@ -208,23 +222,27 @@
             background: #ffffff;
             transition: var(--transition); 
         }
+
         .jurusan-card-img-wrapper {
             overflow: hidden;
             position: relative;
         }
+
         .jurusan-card img {
             transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
+
         .jurusan-card:hover { 
             transform: translateY(-10px); 
             box-shadow: 0 25px 50px rgba(11,25,44,0.08); 
             border-color: transparent;
         }
+
         .jurusan-card:hover img {
             transform: scale(1.08);
         }
 
-        /* Custom Modern Buttons */
+        /* ================= BUTTONS & FORMS ================= */
         .btn-spmb {
             background: var(--primary); 
             color: white !important;
@@ -236,6 +254,7 @@
             transition: var(--transition);
             box-shadow: 0 4px 15px rgba(11, 25, 44, 0.2);
         }
+
         .btn-spmb:hover { 
             background: var(--secondary); 
             color: var(--primary) !important;
@@ -252,6 +271,7 @@
             transition: var(--transition);
             box-shadow: 0 6px 20px rgba(212, 175, 55, 0.25);
         }
+
         .btn-hero:hover {
             background: #ffffff;
             color: var(--primary) !important;
@@ -259,13 +279,13 @@
             box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
         }
 
-        /* Premium SPMB Form Card */
         .premium-form-card {
             background: #ffffff;
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: var(--radius-lg);
             box-shadow: 0 30px 60px rgba(0,0,0,0.15);
         }
+
         .form-control, .form-select {
             padding: 14px 18px;
             border-radius: 12px;
@@ -273,11 +293,13 @@
             font-size: 0.9rem;
             transition: var(--transition);
         }
+
         .form-control:focus, .form-select:focus {
             border-color: var(--accent);
             box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.12);
             color: var(--text-dark);
         }
+
         .btn-submit-form {
             background: var(--primary);
             color: white;
@@ -286,18 +308,14 @@
             font-weight: 700;
             transition: var(--transition);
         }
+
         .btn-submit-form:hover {
             background: var(--primary-light);
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(11, 25, 44, 0.25);
         }
 
-        /* Sections padding */
-        section {
-            padding: 90px 0 !important;
-        }
-
-        /* Responsive Mobile Touches */
+        /* ================= RESPONSIVE ================= */
         @media (max-width: 991.98px) {
             section { padding: 60px 0 !important; }
             .hero { min-height: 70vh; padding: 100px 0 60px 0; text-align: center; }
@@ -311,7 +329,7 @@
             }
         }
 
-        /* Modern Floating Action Button */
+        /* ================= WIDGETS & FOOTER ================= */
         .floating-wa {
             position: fixed;
             bottom: 30px;
@@ -329,26 +347,29 @@
             z-index: 999;
             transition: var(--transition);
         }
+
         .floating-wa:hover {
             transform: scale(1.1);
             color: white;
         }
 
-        /* Footer Accent */
         footer { 
             background: #061221; 
             color: rgba(255,255,255,0.75); 
             font-size: 0.88rem;
         }
+
         footer h5, footer h6 {
             color: #ffffff;
             font-weight: 700;
             margin-bottom: 22px;
         }
+
         footer a {
             transition: var(--transition);
             opacity: 0.75;
         }
+
         footer a:hover {
             color: var(--secondary) !important;
             opacity: 1;
@@ -358,6 +379,7 @@
 </head>
 <body>
 
+<!-- ================= TOP BAR ================= -->
 <div class="top-bar d-none d-lg-block py-2">
     <div class="container d-flex justify-content-between align-items-center">
         <div class="d-flex align-items-center gap-4">
@@ -365,13 +387,18 @@
             <span><i class="fas fa-map-marker-alt me-2 text-warning"></i>Ciroyom, Tasikmalaya, Jawa Barat</span>
         </div>
         <div class="d-flex align-items-center gap-3">
-            <a href="mailto:info@smknbojonggambir.sch.id" class="text-white text-decoration-none"><i class="fas fa-envelope me-1 text-warning"></i> info@smknbojonggambir.sch.id</a>
+            <a href="mailto:info@smknbojonggambir.sch.id" class="text-white text-decoration-none">
+                <i class="fas fa-envelope me-1 text-warning"></i> info@smknbojonggambir.sch.id
+            </a>
             <span class="opacity-25">|</span>
-            <a href="tel:+6285333332232" class="text-white text-decoration-none"><i class="fas fa-phone me-1 text-warning"></i> +62 853-3333-2232</a>
+            <a href="tel:+6285333332232" class="text-white text-decoration-none">
+                <i class="fas fa-phone me-1 text-warning"></i> +62 853-3333-2232
+            </a>
         </div>
     </div>
 </div>
 
+<!-- ================= NAVBAR ================= -->
 <nav class="navbar navbar-expand-xl sticky-top">
     <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="#">
@@ -387,6 +414,7 @@
 
         <div class="collapse navbar-collapse" id="mainNav">
             <ul class="navbar-nav ms-auto align-items-xl-center">
+                
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Beranda</a>
                     <ul class="dropdown-menu">
@@ -397,18 +425,18 @@
                 </li>
 
                 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Tentang Kami</a>
-    <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#profil-sekolah">Profil Sekolah</a></li>
-        <li><a class="dropdown-item" href="#visi-misi">Visi Misi</a></li>
-        <li><a class="dropdown-item" href="#struktur-organisasi">Struktur Organisasi</a></li>
-        <li><a class="dropdown-item" href="#akreditasi">Akreditasi</a></li>
-        <li><a class="dropdown-item" href="#hubungan-industri">Hubungan Industri</a></li>
-        <li><a class="dropdown-item" href="#fasilitas">Fasilitas</a></li>
-        <li><a class="dropdown-item" href="#prestasi">Prestasi</a></li>
-        <li><a class="dropdown-item" href="#kebijakan-mutu">Kebijakan Mutu</a></li>
-    </ul>
-</li>
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Tentang Kami</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#profil-sekolah">Profil Sekolah</a></li>
+                        <li><a class="dropdown-item" href="#visi-misi">Visi Misi</a></li>
+                        <li><a class="dropdown-item" href="#struktur-organisasi">Struktur Organisasi</a></li>
+                        <li><a class="dropdown-item" href="#akreditasi">Akreditasi</a></li>
+                        <li><a class="dropdown-item" href="#hubungan-industri">Hubungan Industri</a></li>
+                        <li><a class="dropdown-item" href="#fasilitas">Fasilitas</a></li>
+                        <li><a class="dropdown-item" href="#prestasi">Prestasi</a></li>
+                        <li><a class="dropdown-item" href="#kebijakan-mutu">Kebijakan Mutu</a></li>
+                    </ul>
+                </li>
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">PTK</a>
@@ -480,6 +508,7 @@
     </div>
 </nav>
 
+<!-- ================= HERO SECTION ================= -->
 <header class="hero">
     <div class="container">
         <div class="row justify-content-lg-start justify-content-center">
@@ -519,6 +548,7 @@
     </div>
 </header>
 
+<!-- ================= SAMBUTAN KEPALA SEKOLAH ================= -->
 <section class="bg-white" id="sambutan">
     <div class="container">
         <div class="row align-items-center g-5">
@@ -543,6 +573,7 @@
     </div>
 </section>
 
+<!-- ================= PUSAT INFORMASI ================= -->
 <section class="bg-light" id="informasi">
     <div class="container">
         <div class="text-center mb-5" data-aos="fade-up">
@@ -644,6 +675,7 @@
     </div>
 </section>
 
+<!-- ================= KOMPETENSI KEAHLIAN ================= -->
 <section class="bg-white" id="jurusan">
     <div class="container text-center">
         <span class="badge bg-primary-subtle text-primary fw-bold text-uppercase px-3 py-2 rounded-pill mb-2" data-aos="fade-up">Kompetensi Keahlian</span>
@@ -688,7 +720,7 @@
     </div>
 </section>
 
-<!-- SECTION: PROFIL SEKOLAH -->
+<!-- ================= PROFIL SEKOLAH ================= -->
 <section class="bg-light" id="profil-sekolah">
     <div class="container" data-aos="fade-up">
         <div class="text-center mb-5">
@@ -697,26 +729,26 @@
         </div>
         <div class="row g-4 align-items-center">
             <div class="col-lg-6">
-                <p class="text-secondary lh-lg">SMK Negeri Bojonggambir berada di bawah naungan Kantor Cabang Dinas Pendidikan Wilayah XII, Dinas Pendidikan Provinsi Jawa Barat[cite: 1]. Sekolah ini dirintis pada tahun 2019 dan menjadi sekolah negeri pertama pada jenjang SMA/SMK/MA sederajat di wilayah Bojonggambir dan sekitarnya[cite: 1].</p>
-                <h5 class="fw-bold mt-4">Program Keahlian[cite: 1]</h5>
+                <p class="text-secondary lh-lg">SMK Negeri Bojonggambir berada di bawah naungan Kantor Cabang Dinas Pendidikan Wilayah XII, Dinas Pendidikan Provinsi Jawa Barat. Sekolah ini dirintis pada tahun 2019 dan menjadi sekolah negeri pertama pada jenjang SMA/SMK/MA sederajat di wilayah Bojonggambir dan sekitarnya.</p>
+                <h5 class="fw-bold mt-4">Program Keahlian</h5>
                 <ul>
-                    <li>Agribisnis Pengolahan Hasil Pertanian (APHP)[cite: 1]</li>
-                    <li>Desain Komunikasi Visual (DKV)[cite: 1]</li>
+                    <li>Agribisnis Pengolahan Hasil Pertanian (APHP)</li>
+                    <li>Desain Komunikasi Visual (DKV)</li>
                 </ul>
-                <p class="text-secondary small">Kedua program tersebut dikembangkan sesuai dengan potensi wilayah, khususnya sektor pertanian dan perkembangan industri kreatif serta teknologi digital[cite: 1].</p>
+                <p class="text-secondary small">Kedua program tersebut dikembangkan sesuai dengan potensi wilayah, khususnya sektor pertanian dan perkembangan industri kreatif serta teknologi digital.</p>
             </div>
             <div class="col-lg-6">
                 <div class="card border-0 shadow-sm">
                     <div class="card-body p-4">
                         <table class="table table-borderless table-sm mb-0 small">
                             <tbody>
-                                <tr><th width="35%">NPSN</th><td>: 69989796[cite: 1]</td></tr>
-                                <tr><th>Status</th><td>: Negeri[cite: 1]</td></tr>
-                                <tr><th>Alamat</th><td>: Jl. Bojonggambir Kp. Mandalawangi RT 005/RW 005, Ciroyom, Bojonggambir[cite: 1]</td></tr>
-                                <tr><th>Kode Pos</th><td>: 46475, Kab. Tasikmalaya, Jawa Barat[cite: 1]</td></tr>
-                                <tr><th>Telepon</th><td>: 0262-2810442[cite: 1]</td></tr>
-                                <tr><th>Email</th><td>: smknbogam18@gmail.com[cite: 1]</td></tr>
-                                <tr><th>Website</th><td>: www.smknbojonggambir.sch.id[cite: 1]</td></tr>
+                                <tr><th width="35%">NPSN</th><td>: 69989796</td></tr>
+                                <tr><th>Status</th><td>: Negeri</td></tr>
+                                <tr><th>Alamat</th><td>: Jl. Bojonggambir Kp. Mandalawangi RT 005/RW 005, Ciroyom, Bojonggambir</td></tr>
+                                <tr><th>Kode Pos</th><td>: 46475, Kab. Tasikmalaya, Jawa Barat</td></tr>
+                                <tr><th>Telepon</th><td>: 0262-2810442</td></tr>
+                                <tr><th>Email</th><td>: smknbogam18@gmail.com</td></tr>
+                                <tr><th>Website</th><td>: www.smknbojonggambir.sch.id</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -726,7 +758,7 @@
     </div>
 </section>
 
-<!-- SECTION: VISI MISI -->
+<!-- ================= VISI MISI ================= -->
 <section class="bg-white" id="visi-misi">
     <div class="container" data-aos="fade-up">
         <div class="row g-4">
@@ -734,79 +766,79 @@
                 <h2 class="fw-bold text-dark display-6 mb-4">Visi & Misi</h2>
                 <div class="p-4 bg-primary text-white rounded-4 shadow">
                     <h5 class="fw-bold mb-3"><i class="fas fa-eye me-2 text-warning"></i> Visi Kami</h5>
-                    <p class="fst-italic mb-0">“Dengan Rahmat Tuhan Yang Maha Kuasa, SMK Negeri Bojonggambir siap meluluskan siswa yang MAHIR, Motekar, Agamis, Hurip, Inovatif, Rancage.”[cite: 1]</p>
+                    <p class="fst-italic mb-0">“Dengan Rahmat Tuhan Yang Maha Kuasa, SMK Negeri Bojonggambir siap meluluskan siswa yang MAHIR, Motekar, Agamis, Hurip, Inovatif, Rancage.”</p>
                 </div>
             </div>
             <div class="col-lg-7">
-                <h5 class="fw-bold mb-3"><i class="fas fa-bullseye me-2 text-primary"></i> Misi Kami[cite: 1]</h5>
+                <h5 class="fw-bold mb-3"><i class="fas fa-bullseye me-2 text-primary"></i> Misi Kami</h5>
                 <ul class="list-group list-group-flush border-0">
-                    <li class="list-group-item border-0 px-0 text-secondary"><i class="fas fa-check text-success me-2"></i> Menanamkan IMTAQ kepada peserta didik sesuai keyakinannya melalui program pembiasaan dan pendidikan karakter bangsa[cite: 1].</li>
-                    <li class="list-group-item border-0 px-0 text-secondary"><i class="fas fa-check text-success me-2"></i> Memberikan layanan pembelajaran yang maksimal sesuai Standar Nasional Pendidikan Indonesia[cite: 1].</li>
-                    <li class="list-group-item border-0 px-0 text-secondary"><i class="fas fa-check text-success me-2"></i> Menciptakan kinerja yang sinergis sehingga suasana belajar terasa aman, nyaman, dan menyenangkan[cite: 1].</li>
-                    <li class="list-group-item border-0 px-0 text-secondary"><i class="fas fa-check text-success me-2"></i> Meningkatkan Sumber Daya Manusia agar mampu menciptakan sesuatu yang berguna bagi dirinya, sekolah, dan masyarakat luas[cite: 1].</li>
-                    <li class="list-group-item border-0 px-0 text-secondary"><i class="fas fa-check text-success me-2"></i> Meningkatkan kerja sama yang harmonis dan profesional dengan Komite Sekolah, Dunia Usaha, dan Dunia Industri dalam penyelenggaraan pendidikan[cite: 1].</li>
-                    <li class="list-group-item border-0 px-0 text-secondary"><i class="fas fa-check text-success me-2"></i> Memilih jurusan yang adaptif sehingga memiliki peluang kerja yang besar bagi lulusan[cite: 1].</li>
+                    <li class="list-group-item border-0 px-0 text-secondary"><i class="fas fa-check text-success me-2"></i> Menanamkan IMTAQ kepada peserta didik sesuai keyakinannya melalui program pembiasaan dan pendidikan karakter bangsa.</li>
+                    <li class="list-group-item border-0 px-0 text-secondary"><i class="fas fa-check text-success me-2"></i> Memberikan layanan pembelajaran yang maksimal sesuai Standar Nasional Pendidikan Indonesia.</li>
+                    <li class="list-group-item border-0 px-0 text-secondary"><i class="fas fa-check text-success me-2"></i> Menciptakan kinerja yang sinergis sehingga suasana belajar terasa aman, nyaman, dan menyenangkan.</li>
+                    <li class="list-group-item border-0 px-0 text-secondary"><i class="fas fa-check text-success me-2"></i> Meningkatkan Sumber Daya Manusia agar mampu menciptakan sesuatu yang berguna bagi dirinya, sekolah, dan masyarakat luas.</li>
+                    <li class="list-group-item border-0 px-0 text-secondary"><i class="fas fa-check text-success me-2"></i> Meningkatkan kerja sama yang harmonis dan profesional dengan Komite Sekolah, Dunia Usaha, dan Dunia Industri.</li>
+                    <li class="list-group-item border-0 px-0 text-secondary"><i class="fas fa-check text-success me-2"></i> Memilih jurusan yang adaptif sehingga memiliki peluang kerja yang besar bagi lulusan.</li>
                 </ul>
             </div>
         </div>
     </div>
 </section>
 
-<!-- SECTION: STRUKTUR & AKREDITASI -->
+<!-- ================= STRUKTUR & AKREDITASI ================= -->
 <section class="bg-light" id="struktur-organisasi">
     <div class="container">
         <div class="row g-4" data-aos="fade-up">
             <div class="col-md-6" id="akreditasi">
                 <div class="card h-100 border-0 shadow-sm p-4">
                     <h5 class="fw-bold text-dark mb-3"><i class="fas fa-sitemap text-primary me-2"></i> Struktur Organisasi</h5>
-                    <p class="text-secondary small mb-2">Unsur pimpinan dan pihak terkait[cite: 1]:</p>
+                    <p class="text-secondary small mb-2">Unsur pimpinan dan pihak terkait:</p>
                     <ul class="small text-secondary mb-3">
-                        <li>Kepala SMK Negeri Bojonggambir: Drs. Wawan Sumarna, M.Pd.[cite: 1]</li>
-                        <li>Komite Sekolah, Pengawas Pembina, Kepala Cabang Dinas Pendidikan Wilayah XII[cite: 1]</li>
-                        <li>Tim Pengembang Kurikulum, Guru dan Tenaga Kependidikan[cite: 1]</li>
+                        <li>Kepala SMK Negeri Bojonggambir: Drs. Wawan Sumarna, M.Pd.</li>
+                        <li>Komite Sekolah, Pengawas Pembina, Kepala Cabang Dinas Pendidikan Wilayah XII</li>
+                        <li>Tim Pengembang Kurikulum, Guru dan Tenaga Kependidikan</li>
                     </ul>
-                    <div class="alert alert-warning py-2 small mb-0"><i class="fas fa-exclamation-triangle me-2"></i> Menunggu pembaruan bagan resmi terbaru dari SK organisasi sekolah[cite: 1].</div>
+                    <div class="alert alert-warning py-2 small mb-0"><i class="fas fa-exclamation-triangle me-2"></i> Menunggu pembaruan bagan resmi terbaru dari SK organisasi sekolah.</div>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="card h-100 border-0 shadow-sm p-4">
                     <h5 class="fw-bold text-dark mb-3"><i class="fas fa-award text-warning me-2"></i> Akreditasi & Prestasi</h5>
-                    <p class="text-secondary small mb-3">Peserta didik memiliki potensi untuk berprestasi di tingkat kota, provinsi, maupun nasional[cite: 1]. Untuk daftar prestasi spesifik akan diperbarui berdasarkan data dokumentasi resmi sekolah[cite: 1].</p>
-                    <div class="alert alert-info py-2 small mb-0" id="prestasi"><i class="fas fa-info-circle me-2"></i> Sertifikat Akreditasi dan Data Prestasi Lengkap sedang dalam proses pembaruan dokumen resmi[cite: 1].</div>
+                    <p class="text-secondary small mb-3">Peserta didik memiliki potensi untuk berprestasi di tingkat kota, provinsi, maupun nasional. Untuk daftar prestasi spesifik akan diperbarui berdasarkan data dokumentasi resmi sekolah.</p>
+                    <div class="alert alert-info py-2 small mb-0" id="prestasi"><i class="fas fa-info-circle me-2"></i> Sertifikat Akreditasi dan Data Prestasi Lengkap sedang dalam proses pembaruan dokumen resmi.</div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- SECTION: HUBUNGAN INDUSTRI -->
+<!-- ================= HUBUNGAN INDUSTRI ================= -->
 <section class="bg-white" id="hubungan-industri">
     <div class="container" data-aos="fade-up">
         <div class="text-center mb-5">
             <h2 class="fw-bold text-dark display-6">Hubungan Industri</h2>
-            <p class="text-muted">Kemitraan dengan dunia kerja dalam kegiatan link and match, pembelajaran berbasis industri, magang, Teaching Factory, dan PKL[cite: 1].</p>
+            <p class="text-muted">Kemitraan dengan dunia kerja dalam kegiatan link and match, pembelajaran berbasis industri, magang, Teaching Factory, dan PKL.</p>
         </div>
         <div class="row g-4">
             <div class="col-md-6">
                 <div class="card bg-light border-0 p-4 h-100 shadow-sm">
-                    <h5 class="fw-bold text-dark border-bottom pb-2">Program DKV[cite: 1]</h5>
-                    <p class="small text-secondary">Mitra industri kreatif meliputi[cite: 1]:</p>
+                    <h5 class="fw-bold text-dark border-bottom pb-2">Program DKV</h5>
+                    <p class="small text-secondary">Mitra industri kreatif meliputi:</p>
                     <ul class="small text-secondary">
-                        <li><strong>Fotografi:</strong> Jonas, Papyrus, Lightbox[cite: 1]</li>
-                        <li><strong>Video:</strong> 7summits, Keponih.com[cite: 1]</li>
-                        <li><strong>Desain:</strong> Bismi, Kabamedia, Mavens[cite: 1]</li>
-                        <li><strong>Ilustrasi/Komik:</strong> Innerchild, Muffin Graphics, Mantox[cite: 1]</li>
-                        <li>Kerja sama SEAMOLEC: 3D Modeling, Metaverse, UI/UX[cite: 1]</li>
+                        <li><strong>Fotografi:</strong> Jonas, Papyrus, Lightbox</li>
+                        <li><strong>Video:</strong> 7summits, Keponih.com</li>
+                        <li><strong>Desain:</strong> Bismi, Kabamedia, Mavens</li>
+                        <li><strong>Ilustrasi/Komik:</strong> Innerchild, Muffin Graphics, Mantox</li>
+                        <li>Kerja sama SEAMOLEC: 3D Modeling, Metaverse, UI/UX</li>
                     </ul>
-                    <p class="small text-secondary mb-0">Didukung oleh unit produksi Edu Creative[cite: 1].</p>
+                    <p class="small text-secondary mb-0">Didukung oleh unit produksi Edu Creative.</p>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="card bg-light border-0 p-4 h-100 shadow-sm">
-                    <h5 class="fw-bold text-dark border-bottom pb-2">Bidang Industri PKL[cite: 1]</h5>
+                    <h5 class="fw-bold text-dark border-bottom pb-2">Bidang Industri PKL</h5>
                     <ul class="small text-secondary">
-                        <li><strong>APHP:</strong> Restoran, Cafe, Toko Roti, Kopi Barista, Catering, Home Industry[cite: 1].</li>
-                        <li><strong>DKV:</strong> Industri fotografi, video, desain, ilustrasi/komik, serta penerbit dan percetakan[cite: 1].</li>
+                        <li><strong>APHP:</strong> Restoran, Cafe, Toko Roti, Kopi Barista, Catering, Home Industry.</li>
+                        <li><strong>DKV:</strong> Industri fotografi, video, desain, ilustrasi/komik, serta penerbit dan percetakan.</li>
                     </ul>
                 </div>
             </div>
@@ -814,32 +846,64 @@
     </div>
 </section>
 
-<!-- SECTION: FASILITAS & KEBIJAKAN MUTU -->
+<!-- ================= FASILITAS & KEBIJAKAN MUTU ================= -->
 <section class="bg-light" id="fasilitas">
     <div class="container" data-aos="fade-up">
         <div class="row g-5">
             <div class="col-lg-6">
                 <h3 class="fw-bold text-dark mb-4">Fasilitas Sekolah</h3>
                 <div class="row g-2">
-                    <div class="col-6"><ul class="list-group small shadow-sm"><li class="list-group-item d-flex justify-content-between">Ruang Kelas <span>6[cite: 1]</span></li><li class="list-group-item d-flex justify-content-between">Lab Komputer <span>1[cite: 1]</span></li><li class="list-group-item d-flex justify-content-between">Perpustakaan <span>1[cite: 1]</span></li><li class="list-group-item d-flex justify-content-between">Mushola <span>1[cite: 1]</span></li><li class="list-group-item d-flex justify-content-between">Tata Usaha <span>1[cite: 1]</span></li><li class="list-group-item d-flex justify-content-between">Ruang Guru <span>1[cite: 1]</span></li><li class="list-group-item d-flex justify-content-between">Ruang Arsip <span>1[cite: 1]</span></li><li class="list-group-item d-flex justify-content-between">Ruang BP/BK <span>1[cite: 1]</span></li></ul></div>
-                    <div class="col-6"><ul class="list-group small shadow-sm"><li class="list-group-item d-flex justify-content-between">Kamar Mandi <span>7[cite: 1]</span></li><li class="list-group-item d-flex justify-content-between">Ruang Kepsek <span>1[cite: 1]</span></li><li class="list-group-item d-flex justify-content-between">Ruang Wakasek <span>1[cite: 1]</span></li><li class="list-group-item d-flex justify-content-between">RPS APHP <span>1[cite: 1]</span></li><li class="list-group-item d-flex justify-content-between">RPS DKV <span>1[cite: 1]</span></li><li class="list-group-item d-flex justify-content-between">9in Design <span>1[cite: 1]</span></li><li class="list-group-item d-flex justify-content-between">Edu Creative <span>1[cite: 1]</span></li></ul></div>
+                    <div class="col-6">
+                        <ul class="list-group small shadow-sm">
+                            <li class="list-group-item d-flex justify-content-between">Ruang Kelas <span>6</span></li>
+                            <li class="list-group-item d-flex justify-content-between">Lab Komputer <span>1</span></li>
+                            <li class="list-group-item d-flex justify-content-between">Perpustakaan <span>1</span></li>
+                            <li class="list-group-item d-flex justify-content-between">Mushola <span>1</span></li>
+                            <li class="list-group-item d-flex justify-content-between">Tata Usaha <span>1</span></li>
+                            <li class="list-group-item d-flex justify-content-between">Ruang Guru <span>1</span></li>
+                            <li class="list-group-item d-flex justify-content-between">Ruang Arsip <span>1</span></li>
+                            <li class="list-group-item d-flex justify-content-between">Ruang BP/BK <span>1</span></li>
+                        </ul>
+                    </div>
+                    <div class="col-6">
+                        <ul class="list-group small shadow-sm">
+                            <li class="list-group-item d-flex justify-content-between">Kamar Mandi <span>7</span></li>
+                            <li class="list-group-item d-flex justify-content-between">Ruang Kepsek <span>1</span></li>
+                            <li class="list-group-item d-flex justify-content-between">Ruang Wakasek <span>1</span></li>
+                            <li class="list-group-item d-flex justify-content-between">RPS APHP <span>1</span></li>
+                            <li class="list-group-item d-flex justify-content-between">RPS DKV <span>1</span></li>
+                            <li class="list-group-item d-flex justify-content-between">9in Design <span>1</span></li>
+                            <li class="list-group-item d-flex justify-content-between">Edu Creative <span>1</span></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-6" id="kebijakan-mutu">
                 <h3 class="fw-bold text-dark mb-4">Kebijakan Mutu</h3>
                 <ul class="list-group border-0 shadow-sm">
-                    <li class="list-group-item border-start-0 border-end-0 border-top-0 py-3"><strong class="d-block text-primary">1. Profesional & Terstandar</strong> <span class="small text-secondary">Manajemen sekolah dikelola profesional berdasarkan prosedur yang dapat dipertanggungjawabkan[cite: 1].</span></li>
-                    <li class="list-group-item border-start-0 border-end-0 py-3"><strong class="d-block text-primary">2. Peningkatan Kompetensi SDM</strong> <span class="small text-secondary">Berkelanjutan melalui sertifikasi, magang, pelatihan, MGMP, dll[cite: 1].</span></li>
-                    <li class="list-group-item border-start-0 border-end-0 py-3"><strong class="d-block text-primary">3. Link and Match & Evaluasi</strong> <span class="small text-secondary">Kerja sama industri dan evaluasi periodik yang berkelanjutan[cite: 1].</span></li>
-                    <li class="list-group-item border-start-0 border-end-0 border-bottom-0 py-3"><strong class="d-block text-primary">4. Berpusat pada Peserta Didik</strong> <span class="small text-secondary">Pengambilan keputusan mengedepankan kepentingan dan peningkatan kompetensi peserta didik berbasis data reflektif[cite: 1].</span></li>
+                    <li class="list-group-item border-start-0 border-end-0 border-top-0 py-3">
+                        <strong class="d-block text-primary">1. Profesional & Terstandar</strong> 
+                        <span class="small text-secondary">Manajemen sekolah dikelola profesional berdasarkan prosedur yang dapat dipertanggungjawabkan.</span>
+                    </li>
+                    <li class="list-group-item border-start-0 border-end-0 py-3">
+                        <strong class="d-block text-primary">2. Peningkatan Kompetensi SDM</strong> 
+                        <span class="small text-secondary">Berkelanjutan melalui sertifikasi, magang, pelatihan, MGMP, dll.</span>
+                    </li>
+                    <li class="list-group-item border-start-0 border-end-0 py-3">
+                        <strong class="d-block text-primary">3. Link and Match & Evaluasi</strong> 
+                        <span class="small text-secondary">Kerja sama industri dan evaluasi periodik yang berkelanjutan.</span>
+                    </li>
+                    <li class="list-group-item border-start-0 border-end-0 border-bottom-0 py-3">
+                        <strong class="d-block text-primary">4. Berpusat pada Peserta Didik</strong> 
+                        <span class="small text-secondary">Pengambilan keputusan mengedepankan kepentingan dan peningkatan kompetensi peserta didik berbasis data reflektif.</span>
+                    </li>
                 </ul>
             </div>
         </div>
     </div>
 </section>
 
-
-    
+<!-- ================= SPMB / PPDB ================= -->
 <section class="py-5 text-white position-relative overflow-hidden" id="spmb" style="background: linear-gradient(135deg, #0b192c 0%, #1e3e62 100%) !important;">
     <div class="container py-4 position-relative z-2">
         <div class="row justify-content-center align-items-center g-5">
@@ -895,6 +959,7 @@
     </div>
 </section>
 
+<!-- ================= FOOTER ================= -->
 <footer class="pt-5 pb-4">
     <div class="container pt-3">
         <div class="row g-4">
@@ -962,29 +1027,39 @@
     </div>
 </footer>
 
+<!-- ================= WIDGETS ================= -->
 <a href="https://wa.me/6285333332232" class="floating-wa" target="_blank" title="Hubungi Kami via WhatsApp">
     <i class="fab fa-whatsapp"></i>
 </a>
 
+<!-- ================= SCRIPTS ================= -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 <script>
+    // Inisialisasi Animate On Scroll (AOS)
     AOS.init({ 
         duration: 800, 
         once: true,
         easing: 'ease-out-cubic'
     });
 
-    // Link Google Apps Script Anda
+    // Link Google Apps Script untuk Form PPDB
+    // Ganti nilai konstanta ini dengan Web App URL Anda saat deploy
     const SCRIPT_URL = 'GANTI_DENGAN_URL_WEB_APP_ANDA';
 
-    document.getElementById('spmbForm').addEventListener('submit', function(e) {
+    document.getElementById('spmbForm').addEventListener('submit', async function(e) {
         e.preventDefault();
+        
         const btn = document.getElementById('btnKirim');
+        const notif = document.getElementById('notif');
+        const form = document.getElementById('spmbForm');
+        
+        // State: Loading
         btn.disabled = true;
         btn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Mengirim...';
 
+        // Persiapan Data
         const data = [
             document.getElementById('nama').value,
             document.getElementById('asal').value,
@@ -994,21 +1069,34 @@
             "PENDAFTARAN_2026"
         ];
 
-        fetch(SCRIPT_URL + '?formType=Pendaftaran', {
-            method: 'POST',
-            body: JSON.stringify(data)
-        })
-        .then(res => {
-            document.getElementById('notif').classList.remove('d-none');
-            document.getElementById('spmbForm').reset();
+        try {
+            // Mengirim data ke Google Apps Script
+            const response = await fetch(SCRIPT_URL + '?formType=Pendaftaran', {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: {
+                    'Content-Type': 'text/plain;charset=utf-8'
+                }
+            });
+
+            // State: Success
+            notif.classList.remove('d-none');
+            form.reset();
+            
+        } catch (error) {
+            // State: Error
+            alert('Terjadi kesalahan jaringan atau konfigurasi script. Silahkan periksa koneksi atau URL Script Anda.');
+            console.error('Error submitting form:', error);
+        } finally {
+            // Reset Button
             btn.disabled = false;
             btn.innerHTML = 'KIRIM PENDAFTARAN <i class="fas fa-paper-plane ms-2"></i>';
-        })
-        .catch(err => {
-            alert('Terjadi kesalahan jaringan atau konfigurasi script. Silahkan coba lagi.');
-            btn.disabled = false;
-            btn.innerHTML = 'KIRIM PENDAFTARAN <i class="fas fa-paper-plane ms-2"></i>';
-        });
+            
+            // Menyembunyikan notifikasi setelah beberapa detik (opsional)
+            setTimeout(() => {
+                notif.classList.add('d-none');
+            }, 5000);
+        }
     });
 </script>
 
